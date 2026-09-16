@@ -65,8 +65,29 @@ public class CardRealizer : MonoBehaviour
         {
             enemy.counter = 0;
         }
+        switch (Random.Range(0,2))
+        {
+            case 0:
+            player.cards.Add(new Card(GameAction.Attack, 4, 1));
+            break;
+            case 1:
+            player.cards.Add(new Card(GameAction.Shield, 4, 1));
+            break;
+        }
         player.UpdateCards();
         player.mana += 1;
+
+        string txt = "Next Action:\n";
+        switch(enemy.type[0].actions[enemy.counter].action)
+        {
+            case GameAction.Attack:
+            txt += "Attack, " + enemy.type[0].actions[enemy.counter].value.ToString() + " * " + enemy.Attack.ToString();
+            break;
+            case GameAction.Shield:
+            txt += "Shield, " + enemy.type[0].actions[enemy.counter].value.ToString() + " * " + enemy.Defense.ToString();
+            break;
+        }
+        enemy.CardString.text = txt;
     }
 
 
