@@ -26,5 +26,5 @@ MonoBehaviour:
   - action: 1
     value: 4
   baseHealth: 10
-  attack: 2
-  defense: 2
+  attack: 1
+  defense: 1
