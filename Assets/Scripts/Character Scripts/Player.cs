@@ -36,7 +36,7 @@ public class Player : Combatant
         Health = maxHealth;
         Attack = 1;
         Defense = 1;
-        mana = 10;
+        mana = 2;
         InitializeCards();
     }
 
