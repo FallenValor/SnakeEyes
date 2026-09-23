@@ -38,9 +38,6 @@ MonoBehaviour:
     m_path: Assets/Scenes/old2.unity
     m_guid: e132952004ecba443b1f87276b9f7095
   - m_enabled: 1
-    m_path: Assets/Scenes/3D TestScene.unity
-    m_guid: 1ed0fddc6d17daa4da28f78613e66426
-  - m_enabled: 1
     m_path: Assets/Scenes/GameOver.unity
     m_guid: 7b4a44ab6ec505a4ab3580c68957753d
   m_HasScriptingDefines: 0
