@@ -11,6 +11,8 @@ public class Enemy : Combatant
     [SerializeField] public TMP_Text CardString;
     public int nextIndex = 0;
     public int enemyCounter = 0;
+
+    GameObject model;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,5 +44,11 @@ public class Enemy : Combatant
             break;
         }
         CardString.text = txt;
+        if(model != null)
+        {
+            Destroy(model);
+        }
+        model = Instantiate(type[enemyCounter].modelPrefab, gameObject.transform);
+        model.transform.SetPositionAndRotation(gameObject.transform.position,gameObject.transform.rotation);
     }
 }
