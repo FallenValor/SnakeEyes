@@ -69,7 +69,7 @@ public class CardRealizer : MonoBehaviour
     {
         if(player.Health <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Scenes/GameOver");
         }
         int multi = Random.Range(1, 4);
         switch (Random.Range(0, 2))
