@@ -67,6 +67,10 @@ public class CardRealizer : MonoBehaviour
 
     private void PlayerTurnUpdate()
     {
+        if(player.Health <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         int multi = Random.Range(1, 4);
         switch (Random.Range(0, 2))
         {
@@ -88,16 +92,19 @@ public class CardRealizer : MonoBehaviour
 
     private void EnemyRealization()
     {
-        switch (enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].action)
+        if(enemy.Health > 0)
         {
-            case GameAction.Attack:
-                Attack(enemy, player, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
-                break;
-            case GameAction.Shield:
-                Shield(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
-                break;
+            switch (enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].action)
+            {
+                case GameAction.Attack:
+                    Attack(enemy, player, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    break;
+                case GameAction.Shield:
+                    Shield(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    break;
+            }
+            enemy.nextIndex = Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
         }
-        enemy.nextIndex = Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
 
     }
 
