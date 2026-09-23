@@ -27,6 +27,7 @@ public class Player : Combatant
     public int mana = 0;
 
     public int manaFill = 1;
+    public int manaStartBonus = 0;
 
     [SerializeField] TMP_Text Manaval;
 
@@ -40,7 +41,7 @@ public class Player : Combatant
         Health = maxHealth;
         Attack = 1;
         Defense = 1;
-        mana = manaFill;
+        mana = manaFill + manaStartBonus;
         InitializeCards();
     }
 
@@ -69,7 +70,7 @@ public class Player : Combatant
         }
         UpdateCards();
         manaFill = 1;
-        mana = manaFill;
+        mana = manaFill + manaStartBonus;
     }
 
     public void AddCard(GameAction action, int value, int cost, int multi)

@@ -15,6 +15,8 @@ public class CardRealizer : MonoBehaviour
     [SerializeField] GameObject upgradeCard;
     public List<GameObject> upgrades = new List<GameObject>();
     public float upgradeSpace = 200;
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject winui;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,12 +43,14 @@ public class CardRealizer : MonoBehaviour
             if (enemy.enemyCounter < enemy.type.Count - 1)
             {
                 enemy.enemyCounter += 1;
+                UpgradeShopStart();
             }
             else
             {
                 enemy.enemyCounter = 0;
+                UpgradeShopStartWave();
             }
-            UpgradeShopStart();
+            
         }
         else
         {
@@ -86,7 +90,7 @@ public class CardRealizer : MonoBehaviour
         {
             player.manaFill += 1;
         }
-        player.mana = player.manaFill;
+        player.mana = player.manaFill + player.manaStartBonus;
 
     }
 
@@ -176,6 +180,25 @@ public class CardRealizer : MonoBehaviour
             upgrades.Add(up);
         }
     }
+
+    void UpgradeShopStartWave()
+    {
+        player.cards.Clear();
+        player.UpdateCards();
+        enemy.HPString.text = "";
+        enemy.ArmorString.text = "";
+        enemy.CardString.text = "";
+        enemy.gameObject.SetActive(false);
+        button.SetActive(false);
+        for(int i = 0; i < 1; i++)
+        {
+            var up = Instantiate(upgradeCard, player.UIcanvas.transform);
+            up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
+            up.GetComponent<UpgradeUI>().controller = this;
+            up.GetComponent<UpgradeUI>().type = UpgradeType.Mana;
+            upgrades.Add(up);
+        }
+    }
     public void UpgradeShopEnd()
     {
         foreach(GameObject obj in upgrades)
@@ -186,5 +209,10 @@ public class CardRealizer : MonoBehaviour
         button.SetActive(true);
         player.InitializeCards();
         enemy.Initialize();
+    }
+
+    public void WinUI()
+    {
+        Instantiate(winui,canvas.transform);
     }
 }
