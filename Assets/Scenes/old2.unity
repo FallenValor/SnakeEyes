@@ -149,16 +149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   cards: []
-  cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}
   UIcanvas: {fileID: 682856937}
-  cardSpread: 180
-  cardOffsetX: -1030
-  cardOffsetY: -330
+  cardSpread: 200
   realizer: {fileID: 0}
   maxHealth: 30
   mana: 0
-  manaFill: 1
   Manaval: {fileID: 206228772}
   HPval: {fileID: 126539286}
   Armorval: {fileID: 1861447878}
@@ -211,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -635, y: 495}
+  m_AnchoredPosition: {x: -635, y: -505}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126539286
@@ -348,7 +344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -542, y: 500}
+  m_AnchoredPosition: {x: -542, y: -500}
   m_SizeDelta: {x: 840, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148875874
@@ -693,7 +689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -844, y: 495}
+  m_AnchoredPosition: {x: -844, y: -505}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206228772
@@ -1218,12 +1214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a39dcdc3ece5254b8bda1e5854dd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardRealizer
+  cards: []
   player: {fileID: 48228204}
   enemy: {fileID: 610278110}
-  button: {fileID: 1401307190}
-  upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
-  upgrades: []
-  upgradeSpace: 200
 --- !u!1 &610278105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,12 +1344,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   type:
   - {fileID: 11400000, guid: 1d31b9a894357ed44af9d6a1e66d55ce, type: 2}
-  - {fileID: 11400000, guid: bb8ee9b6ca60a5141b8e0d39a6a7e359, type: 2}
   HPString: {fileID: 176063466}
   ArmorString: {fileID: 1754263005}
   CardString: {fileID: 1167220810}
-  nextIndex: 0
-  enemyCounter: 0
+  counter: 0
 --- !u!1 &682856937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776, y: -165}
+  m_AnchoredPosition: {x: 776, y: -393}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401307192
@@ -2308,7 +2299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 495}
+  m_AnchoredPosition: {x: -350, y: -505}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861447878
@@ -2582,7 +2573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -561, y: 500}
+  m_AnchoredPosition: {x: -561, y: -500}
   m_SizeDelta: {x: 800, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133031950

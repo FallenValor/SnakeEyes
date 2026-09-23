@@ -6,27 +6,15 @@ public class Enemy : Combatant
 {
     [SerializeField] public List<EnemyType> type = new List<EnemyType>();
     
-    [SerializeField] TMP_Text HPString;
-    [SerializeField] TMP_Text ArmorString;
+    [SerializeField] public TMP_Text HPString;
+    [SerializeField] public TMP_Text ArmorString;
     [SerializeField] public TMP_Text CardString;
-    public int counter = 0;
+    public int nextIndex = 0;
+    public int enemyCounter = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Health = type[0].baseHealth;
-        Attack = type[0].attack;
-        Defense = type[0].defense;
-        string txt = "Next Action:\n";
-        switch(type[0].actions[counter].action)
-        {
-            case GameAction.Attack:
-            txt += "Attack, " + type[0].actions[counter].value.ToString() + " * " + Attack.ToString();
-            break;
-            case GameAction.Shield:
-            txt += "Shield, " + type[0].actions[counter].value.ToString() + " * " + Defense.ToString();
-            break;
-        }
-        CardString.text = txt;
+        Initialize();
     }
 
     // Update is called once per frame
@@ -35,5 +23,24 @@ public class Enemy : Combatant
         HPString.text = "Health: " + Health.ToString();
         ArmorString.text = "Armor: " + Armor.ToString();
         
+    }
+
+    public void Initialize()
+    {
+        nextIndex = Random.Range(0, type[enemyCounter].actions.Count);
+        Health = type[enemyCounter].baseHealth;
+        Attack = type[enemyCounter].attack;
+        Defense = type[enemyCounter].defense;
+        string txt = "Next Action:\n";
+        switch(type[enemyCounter].actions[nextIndex].action)
+        {
+            case GameAction.Attack:
+            txt += "Attack, " + type[enemyCounter].actions[nextIndex].value.ToString() + " * " + Attack.ToString();
+            break;
+            case GameAction.Shield:
+            txt += "Shield, " + type[enemyCounter].actions[nextIndex].value.ToString() + " * " + Defense.ToString();
+            break;
+        }
+        CardString.text = txt;
     }
 }
