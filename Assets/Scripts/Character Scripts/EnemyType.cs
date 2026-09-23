@@ -8,4 +8,5 @@ public class EnemyType : ScriptableObject
     [SerializeField] public int baseHealth;
     [SerializeField] public int attack;
     [SerializeField] public int defense;
+    [SerializeField] public GameObject modelPrefab;
 }

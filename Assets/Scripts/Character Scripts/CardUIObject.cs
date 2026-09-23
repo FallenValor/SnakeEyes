@@ -1,6 +1,6 @@
 using TMPro;
 using Unity.Collections;
-using UnityEditor.Playables;
+//using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -15,6 +15,10 @@ public class CardUIObject : MonoBehaviour
     [SerializeField] TMP_Text valueText;
 
     [SerializeField] TMP_Text costText;
+
+    [SerializeField] Sprite cardSpriteAttack;
+    [SerializeField] Sprite cardSpriteShield;
+    [SerializeField] SpriteRenderer cardImage;
 
     bool played = false;
 
@@ -32,11 +36,13 @@ public class CardUIObject : MonoBehaviour
             case GameAction.Attack:
             nameText.text = "Attack";
             valueText.text = (card.value * player.Attack).ToString();
-            break;
+                cardImage.sprite = cardSpriteAttack;
+                break;
             case GameAction.Shield:
-            nameText.text = "Shield";
-            valueText.text = (card.value * player.Defense).ToString();
-            break;
+                nameText.text = "Shield";
+                valueText.text = (card.value * player.Defense).ToString();
+                cardImage.sprite = cardSpriteShield;
+                break;
         }
         costText.text = card.cost.ToString();
         //MouseChecker();
