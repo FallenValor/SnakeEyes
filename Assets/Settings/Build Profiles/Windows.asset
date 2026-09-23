@@ -29,12 +29,12 @@ MonoBehaviour:
     m_path: Assets/Scenes/IntroScene.unity
     m_guid: 2f4bd6715ceb16c41944d4226cd25326
   - m_enabled: 1
-    m_path: Assets/Scenes/Credits.unity
-    m_guid: 58e5c2d883d7c3f458d3e15d7e55429c
-  - m_enabled: 1
     m_path: Assets/Scenes/HowToPlay.unity
     m_guid: c1110c8ebe86c244f99f79a60e261284
   - m_enabled: 1
+    m_path: Assets/Scenes/Credits.unity
+    m_guid: 58e5c2d883d7c3f458d3e15d7e55429c
+  - m_enabled: 0
     m_path: Assets/Scenes/old2.unity
     m_guid: e132952004ecba443b1f87276b9f7095
   - m_enabled: 1
