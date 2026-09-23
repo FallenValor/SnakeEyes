@@ -75,16 +75,36 @@ public class CardRealizer : MonoBehaviour
         {
             SceneManager.LoadScene("Scenes/GameOver");
         }
-        int multi = Random.Range(1, 4);
-        switch (Random.Range(0, 2))
+        if(player.cards.Count > 1)
         {
-            case 0:
-                player.AddCard(GameAction.Attack, 4,1, multi);
-                break;
-            case 1:
-                player.AddCard(GameAction.Shield, 4,1, multi);
-                break;
+            int multi = Random.Range(1, 4);
+            switch (Random.Range(0, 2))
+            {
+                case 0:
+                    player.AddCard(GameAction.Attack, 4,1, multi);
+                    break;
+                case 1:
+                    player.AddCard(GameAction.Shield, 4,1, multi);
+                    break;
+            }
         }
+        else
+        {
+            for(int i = 0; i < 2; i++)
+            {
+                int multi = Random.Range(1, 4);
+                switch (Random.Range(0, 2))
+                {
+                    case 0:
+                        player.AddCard(GameAction.Attack, 4,1, multi);
+                        break;
+                    case 1:
+                        player.AddCard(GameAction.Shield, 4,1, multi);
+                        break;
+                }
+            }
+        }
+        
         player.UpdateCards();
         if(player.manaFill < 6)
         {
@@ -161,7 +181,7 @@ public class CardRealizer : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene("3D TestScene");
+        SceneManager.LoadScene("IntroScene");
     }
     void UpgradeShopStart()
     {
