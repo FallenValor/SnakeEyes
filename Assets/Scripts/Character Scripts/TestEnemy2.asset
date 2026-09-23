@@ -22,4 +22,4 @@ MonoBehaviour:
   baseHealth: 15
   attack: 1
   defense: 1
-  modelPrefab: {fileID: 4478256177652529958, guid: 224c23da4fc3a9e488ce52d892ba0958, type: 3}
+  modelPrefab: {fileID: 4636429772698079211, guid: 9fe2dce18abaf9c4ab07b87367254626, type: 3}
