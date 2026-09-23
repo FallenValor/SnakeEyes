@@ -214,5 +214,6 @@ public class CardRealizer : MonoBehaviour
     public void WinUI()
     {
         Instantiate(winui,canvas.transform);
+        enemy.waveMultiplier += 1;
     }
 }

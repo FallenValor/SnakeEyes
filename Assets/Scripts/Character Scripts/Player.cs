@@ -71,6 +71,7 @@ public class Player : Combatant
         UpdateCards();
         manaFill = 1;
         mana = manaFill + manaStartBonus;
+        Armor = 0;
     }
 
     public void AddCard(GameAction action, int value, int cost, int multi)

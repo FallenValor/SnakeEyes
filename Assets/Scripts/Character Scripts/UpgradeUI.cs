@@ -5,6 +5,7 @@ public enum UpgradeType
     Attack,
     Defense,
     Health,
+    Heal,
     Mana
 }
 public class UpgradeUI : MonoBehaviour
@@ -17,7 +18,7 @@ public class UpgradeUI : MonoBehaviour
     {
         if(type != UpgradeType.Mana)
         {
-            switch(Random.Range(1,4))
+            switch(Random.Range(1,5))
             {
                 case 1:
                 type = UpgradeType.Attack;
@@ -30,6 +31,10 @@ public class UpgradeUI : MonoBehaviour
                 case 3:
                 type = UpgradeType.Health;
                 text.text = "Health + 4";
+                break;
+                case 4:
+                type = UpgradeType.Heal;
+                text.text = "Heal 20";
                 break;
             }
         }
@@ -61,6 +66,16 @@ public class UpgradeUI : MonoBehaviour
             break;
             case UpgradeType.Mana:
             controller.player.manaStartBonus += 1;
+            break;
+            case UpgradeType.Heal:
+            if(controller.player.Health + 20 > controller.player.maxHealth)
+            {
+                controller.player.Health = controller.player.maxHealth;
+            }
+            else
+            {
+                controller.player.Health += 20;
+            }
             break;
         }
         if(type != UpgradeType.Mana)
