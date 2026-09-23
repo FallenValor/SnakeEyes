@@ -466,8 +466,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 48.2
+  m_Color: {r: 0.9496855, g: 0.69583875, b: 0.69583875, a: 1}
+  m_Intensity: 30
   m_Range: 3
   m_SpotAngle: 120.63043
   m_InnerSpotAngle: 0
@@ -509,7 +509,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.57
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -1082,7 +1082,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99371064, g: 0.89871436, b: 0.6968473, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3076,12 +3076,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cd028f6e47a3e054baca2749714be033, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 107.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: cd028f6e47a3e054baca2749714be033, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 102.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: cd028f6e47a3e054baca2749714be033, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.026
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: cd028f6e47a3e054baca2749714be033, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.009
+      value: -0.011
       objectReference: {fileID: 0}
     - target: {fileID: -5169578811043067064, guid: cd028f6e47a3e054baca2749714be033, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
