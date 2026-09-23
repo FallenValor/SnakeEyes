@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("3D TestScene");
+        SceneManager.LoadScene("IntroScene");
     }
 
     public void OpenHowToPlay()
