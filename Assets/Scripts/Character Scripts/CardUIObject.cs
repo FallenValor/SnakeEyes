@@ -1,12 +1,14 @@
 using TMPro;
+using Unity.Collections;
 using UnityEditor.Playables;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class CardUIObject : MonoBehaviour
 {
     public Card card;
-
+    public Player player;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text buttonText;
 
@@ -29,13 +31,15 @@ public class CardUIObject : MonoBehaviour
         {
             case GameAction.Attack:
             nameText.text = "Attack";
+            valueText.text = (card.value * player.Attack).ToString();
             break;
             case GameAction.Shield:
             nameText.text = "Shield";
+            valueText.text = (card.value * player.Defense).ToString();
             break;
         }
-        valueText.text = card.value.ToString();
         costText.text = card.cost.ToString();
+        //MouseChecker();
     }
 
     public void Init(Card cd)
@@ -54,7 +58,6 @@ public class CardUIObject : MonoBehaviour
                 buttonText.text = "Recall";
                 card.played = true;
                 FindAnyObjectByType<Player>().mana -= card.cost;
-                FindAnyObjectByType<CardRealizer>().cards.Add(this);
             }
         }
         else
@@ -63,7 +66,6 @@ public class CardUIObject : MonoBehaviour
             buttonText.text = "Play";
             card.played = false;
             FindAnyObjectByType<Player>().mana += card.cost;
-            FindAnyObjectByType<CardRealizer>().cards.Remove(this);
         }
     }
 
@@ -76,4 +78,19 @@ public class CardUIObject : MonoBehaviour
             //Debug.Log("I AM DESTROYING!!!");
         }
     }
+    /*
+    void MouseChecker()
+    {
+        var pos = Camera.main.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y,10));
+        if(pos.x > gameObject.transform.position.x - 2 &&
+        pos.x < gameObject.transform.position.x + 2 &&
+        pos.y < gameObject.transform.position.y + 2 &&
+        pos.y > gameObject.transform.position.y - 2)
+        {
+            gameObject.transform.Translate(2,0,0);
+
+        }
+                    print(pos);
+    }
+    */
 }

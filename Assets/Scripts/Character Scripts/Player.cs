@@ -9,13 +9,15 @@ public class Player : Combatant
 {
     public List<Card> cards = new List<Card>();
 
-    List<GameObject> cardObjs = new List<GameObject>();
+    public List<GameObject> cardObjs = new List<GameObject>();
 
     [SerializeField] GameObject cardObject;
 
-    [SerializeField] GameObject UIcanvas;
+    [SerializeField] public GameObject UIcanvas;
 
-    [SerializeField] float cardSpread = 50;
+    [SerializeField] float cardSpread = 10;
+    [SerializeField] float cardOffsetX = 10;
+    [SerializeField] float cardOffsetY = 10;
 
     [SerializeField] CardRealizer realizer;
 
@@ -23,6 +25,8 @@ public class Player : Combatant
     public int maxHealth = 30;
 
     public int mana = 0;
+
+    public int manaFill = 1;
 
     [SerializeField] TMP_Text Manaval;
 
@@ -36,7 +40,7 @@ public class Player : Combatant
         Health = maxHealth;
         Attack = 1;
         Defense = 1;
-        mana = 2;
+        mana = manaFill;
         InitializeCards();
     }
 
@@ -48,21 +52,29 @@ public class Player : Combatant
         Armorval.text = "Armor: " + Armor;
     }
 
-    void InitializeCards()
+    public void InitializeCards()
     {
         for(int i = 0; i < 4; i++)
         {
+            int multi = Random.Range(1,4);
             switch (Random.Range(0,2))
             {
                 case 0:
-                cards.Add(new Card(GameAction.Attack, 4, 1));
+                AddCard(GameAction.Attack, 4,1,multi);
                 break;
                 case 1:
-                cards.Add(new Card(GameAction.Shield, 4, 1));
+                AddCard(GameAction.Shield, 4,1,multi);
                 break;
             }
         }
         UpdateCards();
+        manaFill = 1;
+        mana = manaFill;
+    }
+
+    public void AddCard(GameAction action, int value, int cost, int multi)
+    {
+        cards.Add(new Card(action, value * multi, cost * multi));
     }
 
     public void UpdateCards()
@@ -77,32 +89,8 @@ public class Player : Combatant
             GameObject cd = Instantiate(cardObject, UIcanvas.transform);
             cd.GetComponent<CardUIObject>().Init(card);
             cardObjs.Add(cd);
-            if(cards.Count % 2 == 1)
-            {
-                if(counter < Mathf.Ceil(cards.Count / 2.0f))
-                {
-                    cd.transform.Translate(new Vector3((Mathf.Ceil(cards.Count / 2.0f) - counter) * -cardSpread, -100, 0) );
-                }
-                else if(counter == Mathf.Ceil(cards.Count / 2.0f))
-                {
-                    cd.transform.Translate(new Vector3(0, -100, 0) );
-                }
-                else if (counter > Mathf.Ceil(cards.Count / 2.0f))
-                {
-                    cd.transform.Translate(new Vector3((counter - Mathf.Ceil(cards.Count / 2.0f)) * cardSpread, -100, 0) );
-                }
-            }
-            else
-            {
-                if(counter <= Mathf.Ceil(cards.Count / 2.0f))
-                {
-                    cd.transform.Translate(new Vector3((Mathf.Ceil(cards.Count / 2.0f) + 1 - counter) * -cardSpread, -100, 0) );
-                }
-                else if (counter > Mathf.Ceil(cards.Count / 2.0f))
-                {
-                    cd.transform.Translate(new Vector3((counter - Mathf.Ceil(cards.Count / 2.0f)) * cardSpread, -100, 0) );
-                }
-            }
+            cd.transform.Translate(new Vector3((counter * cardSpread) + cardOffsetX, cardOffsetY, 0) );
+            cd.GetComponent<CardUIObject>().player = this;
             counter += 1;
             //print(card.action + " " + card.value);
         }
