@@ -5,6 +5,7 @@ public enum GameAction
 {
     Attack,
     Shield,
+    Heal,
 }
 [System.Serializable]
 public class Card

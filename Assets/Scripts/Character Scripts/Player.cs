@@ -9,6 +9,10 @@ public class Player : Combatant
 {
     public List<Card> cards = new List<Card>();
 
+    public List<Card> deck = new List<Card>();
+    public List<Card> discard = new List<Card>();
+
+
     public List<GameObject> cardObjs = new List<GameObject>();
 
     [SerializeField] GameObject cardObject;
@@ -55,18 +59,10 @@ public class Player : Combatant
 
     public void InitializeCards()
     {
+        Shuffle();
         for(int i = 0; i < 4; i++)
         {
-            int multi = Random.Range(1,4);
-            switch (Random.Range(0,2))
-            {
-                case 0:
-                AddCard(GameAction.Attack, 4,1,multi);
-                break;
-                case 1:
-                AddCard(GameAction.Shield, 4,1,multi);
-                break;
-            }
+            Draw();
         }
         UpdateCards();
         manaFill = 1;
@@ -95,6 +91,36 @@ public class Player : Combatant
             cd.GetComponent<CardUIObject>().player = this;
             counter += 1;
             //print(card.action + " " + card.value);
+        }
+    }
+    public void Shuffle()
+    {
+        for(int i = 0; i < deck.Count; i++)
+        {
+            int index = Random.Range(0,deck.Count - 1);
+            Card temp = deck[index];
+            deck[index] = deck[i];
+            deck[i] = temp;
+        }
+    }
+
+    public void Draw()
+    {
+        if(deck.Count == 0)
+        {
+            for(int i = 0; i < discard.Count; i++)
+            {
+                deck.Add(discard[i]);
+            }
+            discard.Clear();
+            Shuffle();
+            cards.Add(deck[0]);
+            deck.RemoveAt(0);
+        }
+        else
+        {
+            cards.Add(deck[0]);
+            deck.RemoveAt(0);
         }
     }
 }
