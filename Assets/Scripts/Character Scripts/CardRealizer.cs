@@ -77,31 +77,13 @@ public class CardRealizer : MonoBehaviour
         }
         if(player.cards.Count > 1)
         {
-            int multi = Random.Range(1, 4);
-            switch (Random.Range(0, 2))
-            {
-                case 0:
-                    player.AddCard(GameAction.Attack, 4,1, multi);
-                    break;
-                case 1:
-                    player.AddCard(GameAction.Shield, 4,1, multi);
-                    break;
-            }
+            player.Draw();
         }
         else
         {
             for(int i = 0; i < 2; i++)
             {
-                int multi = Random.Range(1, 4);
-                switch (Random.Range(0, 2))
-                {
-                    case 0:
-                        player.AddCard(GameAction.Attack, 4,1, multi);
-                        break;
-                    case 1:
-                        player.AddCard(GameAction.Shield, 4,1, multi);
-                        break;
-                }
+                player.Draw();
             }
         }
         
@@ -147,7 +129,10 @@ public class CardRealizer : MonoBehaviour
                         Shield(player, player.cards[i].value);
                         break;
                 }
+                Card temp = player.cards[i];
+                temp.played = false;
                 player.cards.Remove(player.cards[i]);
+                player.discard.Add(temp);
             }
         }
     }
@@ -177,6 +162,11 @@ public class CardRealizer : MonoBehaviour
     void Shield(Combatant defender, int val)
     {
         defender.Armor += val * defender.Defense;
+    }
+
+    void Heal(Combatant defender, int val)
+    {
+        defender.Health += val;
     }
 
     public void Reload()
