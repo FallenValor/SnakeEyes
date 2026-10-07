@@ -40,6 +40,9 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/GameOver.unity
     m_guid: 7b4a44ab6ec505a4ab3580c68957753d
+  - m_enabled: 1
+    m_path: Assets/Scenes/3D TestScene.unity
+    m_guid: 66e913326b8fb324d8904909e947078a
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
