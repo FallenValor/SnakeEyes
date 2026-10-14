@@ -59,6 +59,7 @@ public class Player : Combatant
 
     public void InitializeCards()
     {
+        EmptyHand();
         Shuffle();
         for(int i = 0; i < 4; i++)
         {
@@ -108,19 +109,35 @@ public class Player : Combatant
     {
         if(deck.Count == 0)
         {
-            for(int i = 0; i < discard.Count; i++)
+            if(discard.Count != 0)
             {
-                deck.Add(discard[i]);
+                for(int i = 0; i < discard.Count; i++)
+                {
+                    deck.Add(discard[i]);
+                }
+                discard.Clear();
+                Shuffle();
+                cards.Add(deck[0]);
+                deck.RemoveAt(0);
             }
-            discard.Clear();
-            Shuffle();
-            cards.Add(deck[0]);
-            deck.RemoveAt(0);
+            
         }
         else
         {
             cards.Add(deck[0]);
             deck.RemoveAt(0);
         }
+    }
+
+    public void EmptyHand()
+    {
+        for(int i = 0; i < cards.Count; i++)
+        {
+            Card temp = cards[0];
+            temp.played = false;
+            cards.RemoveAt(0);
+            discard.Add(temp);
+        }
+        
     }
 }

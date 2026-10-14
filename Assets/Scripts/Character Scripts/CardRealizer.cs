@@ -13,6 +13,7 @@ public class CardRealizer : MonoBehaviour
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject button;
     [SerializeField] GameObject upgradeCard;
+    [SerializeField] GameObject upgradeCardWave;
     public List<GameObject> upgrades = new List<GameObject>();
     public float upgradeSpace = 200;
     [SerializeField] Canvas canvas;
@@ -32,14 +33,18 @@ public class CardRealizer : MonoBehaviour
     {
         PlayerRealization();
         EnemyRealization();
-        PlayerTurnUpdate();
         EnemyTurnUpdate();
+        if(enemy.Health > 0)
+        {
+            PlayerTurnUpdate();
+        }
     }
 
     private void EnemyTurnUpdate()
     {
         if(enemy.Health <= 0)
         {
+            player.EmptyHand();
             if (enemy.enemyCounter < enemy.type.Count - 1)
             {
                 enemy.enemyCounter += 1;
@@ -93,7 +98,6 @@ public class CardRealizer : MonoBehaviour
             player.manaFill += 1;
         }
         player.mana = player.manaFill + player.manaStartBonus;
-
     }
 
     private void EnemyRealization()
@@ -107,6 +111,9 @@ public class CardRealizer : MonoBehaviour
                     break;
                 case GameAction.Shield:
                     Shield(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    break;
+                case GameAction.Heal:
+                    Heal(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
                     break;
             }
             enemy.nextIndex = Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
@@ -127,6 +134,9 @@ public class CardRealizer : MonoBehaviour
                         break;
                     case GameAction.Shield:
                         Shield(player, player.cards[i].value);
+                        break;
+                    case GameAction.Heal:
+                        Heal(player, player.cards[i].value);
                         break;
                 }
                 Card temp = player.cards[i];
@@ -175,7 +185,7 @@ public class CardRealizer : MonoBehaviour
     }
     void UpgradeShopStart()
     {
-        player.cards.Clear();
+        player.EmptyHand();
         player.UpdateCards();
         enemy.HPString.text = "";
         enemy.ArmorString.text = "";
@@ -193,7 +203,7 @@ public class CardRealizer : MonoBehaviour
 
     void UpgradeShopStartWave()
     {
-        player.cards.Clear();
+        player.EmptyHand();
         player.UpdateCards();
         enemy.HPString.text = "";
         enemy.ArmorString.text = "";
@@ -202,7 +212,7 @@ public class CardRealizer : MonoBehaviour
         button.SetActive(false);
         for(int i = 0; i < 1; i++)
         {
-            var up = Instantiate(upgradeCard, player.UIcanvas.transform);
+            var up = Instantiate(upgradeCardWave, player.UIcanvas.transform);
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
             up.GetComponent<UpgradeUI>().controller = this;
             up.GetComponent<UpgradeUI>().type = UpgradeType.Mana;
