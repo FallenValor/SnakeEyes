@@ -148,6 +148,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026915700bfae354aa040d37801917ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  cards: []
+  deck: []
+  discard: []
+  cardObjs: []
+  cardObject: {fileID: 0}
+  UIcanvas: {fileID: 0}
+  cardSpread: 10
+  cardOffsetX: 10
+  cardOffsetY: 10
+  realizer: {fileID: 0}
+  maxHealth: 30
+  mana: 0
+  manaFill: 1
+  manaStartBonus: 0
+  Manaval: {fileID: 0}
+  HPval: {fileID: 0}
+  Armorval: {fileID: 0}
 --- !u!4 &48228205
 Transform:
   m_ObjectHideFlags: 0
@@ -1003,6 +1020,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0204f8f22e076484a91ffbedb42a4adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  type: []
+  HPString: {fileID: 0}
+  ArmorString: {fileID: 0}
+  CardString: {fileID: 0}
+  nextIndex: 0
+  enemyCounter: 0
+  waveMultiplier: 1
 --- !u!1 &682856937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

@@ -149,12 +149,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   cards: []
+  deck: []
+  discard: []
+  cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}
   UIcanvas: {fileID: 682856937}
   cardSpread: 200
+  cardOffsetX: 10
+  cardOffsetY: 10
   realizer: {fileID: 0}
   maxHealth: 30
   mana: 0
+  manaFill: 1
+  manaStartBonus: 0
   Manaval: {fileID: 206228772}
   HPval: {fileID: 126539286}
   Armorval: {fileID: 1861447878}
@@ -1214,9 +1221,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a39dcdc3ece5254b8bda1e5854dd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardRealizer
-  cards: []
   player: {fileID: 48228204}
   enemy: {fileID: 610278110}
+  button: {fileID: 0}
+  upgradeCard: {fileID: 0}
+  upgradeCardWave: {fileID: 0}
+  upgradeCardAdd: {fileID: 0}
+  upgrades: []
+  upgradeSpace: 200
+  canvas: {fileID: 0}
+  winui: {fileID: 0}
 --- !u!1 &610278105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1361,9 @@ MonoBehaviour:
   HPString: {fileID: 176063466}
   ArmorString: {fileID: 1754263005}
   CardString: {fileID: 1167220810}
-  counter: 0
+  nextIndex: 0
+  enemyCounter: 0
+  waveMultiplier: 1
 --- !u!1 &682856937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
