@@ -177,7 +177,22 @@ public class CardRealizer : MonoBehaviour
 
     void Heal(Combatant defender, int val)
     {
-        defender.Health += val;
+        if(defender.GetComponent<Player>() != null)
+        {
+            if(defender.Health + val <= defender.GetComponent<Player>().maxHealth)
+            {
+                defender.Health += val;
+            }
+            else
+            {
+                defender.Health = defender.GetComponent<Player>().maxHealth;
+            }
+        }
+        else
+        {
+            defender.Health += val;
+        }
+        
     }
 
     public void Reload()
