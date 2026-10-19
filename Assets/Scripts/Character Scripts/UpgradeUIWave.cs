@@ -42,12 +42,12 @@ public class UpgradeUIWave : MonoBehaviour
         switch(type)
         {
             case UpgradeTypeWave.Mana:
-            controller.player.Attack += 1;
+            controller.player.manaStartBonus += 1;
+            controller.WinUI();
             break;
-            case UpgradeTypeWave.CardUpgrade:
-            controller.player.Defense += 1;
+            case UpgradeTypeWave.CardAdd:
+            controller.AddCardMenu();
             break;
         }
-        controller.WinUI();
     }
 }

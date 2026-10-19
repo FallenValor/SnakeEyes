@@ -14,6 +14,7 @@ public class CardRealizer : MonoBehaviour
     [SerializeField] GameObject button;
     [SerializeField] GameObject upgradeCard;
     [SerializeField] GameObject upgradeCardWave;
+    [SerializeField] GameObject upgradeCardAdd;
     public List<GameObject> upgrades = new List<GameObject>();
     public float upgradeSpace = 200;
     [SerializeField] Canvas canvas;
@@ -210,12 +211,38 @@ public class CardRealizer : MonoBehaviour
         enemy.CardString.text = "";
         enemy.gameObject.SetActive(false);
         button.SetActive(false);
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 3; i++)
         {
             var up = Instantiate(upgradeCardWave, player.UIcanvas.transform);
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
-            up.GetComponent<UpgradeUI>().controller = this;
-            up.GetComponent<UpgradeUI>().type = UpgradeType.Mana;
+            up.GetComponent<UpgradeUIWave>().controller = this;
+            upgrades.Add(up);
+        }
+    }
+    public void AddCardMenu()
+    {
+        foreach(GameObject obj in upgrades)
+        {
+            Destroy(obj);
+        }
+        for(int i = 0; i < 3; i++)
+        {
+            var up = Instantiate(upgradeCardAdd, player.UIcanvas.transform);
+            up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
+            up.GetComponent<CardUIObjectAdd>().player = player;
+            up.GetComponent<CardUIObjectAdd>().controller = this;
+            switch(Random.Range(1,4))
+            {
+                case 1:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Attack, 8, 2);
+                break;
+                case 2:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Shield, 8, 2);
+                break;
+                case 3:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Heal, 20, 3);
+                break;
+            }
             upgrades.Add(up);
         }
     }
