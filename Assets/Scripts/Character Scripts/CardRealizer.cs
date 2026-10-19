@@ -197,7 +197,7 @@ public class CardRealizer : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene("IntroScene");
+        SceneManager.LoadScene("3D TestScene");
     }
     void UpgradeShopStart()
     {
