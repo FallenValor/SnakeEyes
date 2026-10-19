@@ -859,6 +859,8 @@ MonoBehaviour:
   enemy: {fileID: 1122662983}
   button: {fileID: 468781835}
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
+  upgradeCardWave: {fileID: 4343740730075922494, guid: e51776fa524d86448b2701b6e85c9626, type: 3}
+  upgradeCardAdd: {fileID: 4343740730075922494, guid: 219a3afa5d885224bad9eee8629091b0, type: 3}
   upgrades: []
   upgradeSpace: 200
   canvas: {fileID: 399676032}
@@ -1420,6 +1422,7 @@ MonoBehaviour:
     value: 4
     played: 0
     cost: 1
+  discard: []
   cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}
   UIcanvas: {fileID: 399676028}

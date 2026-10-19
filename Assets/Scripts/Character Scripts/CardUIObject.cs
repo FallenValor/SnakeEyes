@@ -43,6 +43,11 @@ public class CardUIObject : MonoBehaviour
                 valueText.text = (card.value * player.Defense).ToString();
                 cardImage.sprite = cardSpriteShield;
                 break;
+            case GameAction.Heal:
+                nameText.text = "Heal";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteShield;
+                break;
         }
         costText.text = card.cost.ToString();
         //MouseChecker();

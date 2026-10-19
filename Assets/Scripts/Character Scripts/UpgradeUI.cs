@@ -6,7 +6,8 @@ public enum UpgradeType
     Defense,
     Health,
     Heal,
-    Mana
+    Mana,
+    Card
 }
 public class UpgradeUI : MonoBehaviour
 {
@@ -16,31 +17,24 @@ public class UpgradeUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(type != UpgradeType.Mana)
+        switch(Random.Range(1,5))
         {
-            switch(Random.Range(1,5))
-            {
-                case 1:
-                type = UpgradeType.Attack;
-                text.text = "Attack + 1";
-                break;
-                case 2:
-                type = UpgradeType.Defense;
-                text.text = "Defense + 1";
-                break;
-                case 3:
-                type = UpgradeType.Health;
-                text.text = "Health + 4";
-                break;
-                case 4:
-                type = UpgradeType.Heal;
-                text.text = "Heal 20";
-                break;
-            }
-        }
-        else
-        {
-            text.text = "Starting Mana + 1";
+            case 1:
+            type = UpgradeType.Attack;
+            text.text = "Attack + 1";
+            break;
+            case 2:
+            type = UpgradeType.Defense;
+            text.text = "Defense + 1";
+            break;
+            case 3:
+            type = UpgradeType.Health;
+            text.text = "Health + 4";
+            break;
+            case 4:
+            type = UpgradeType.Heal;
+            text.text = "Heal 20";
+            break;
         }
     }
 
@@ -65,6 +59,9 @@ public class UpgradeUI : MonoBehaviour
             controller.player.Health += 4;
             break;
             case UpgradeType.Mana:
+            controller.player.manaStartBonus += 1;
+            break;
+            case UpgradeType.Card:
             controller.player.manaStartBonus += 1;
             break;
             case UpgradeType.Heal:
