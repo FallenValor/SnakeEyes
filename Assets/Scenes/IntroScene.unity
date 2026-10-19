@@ -859,6 +859,8 @@ MonoBehaviour:
   enemy: {fileID: 1122662983}
   button: {fileID: 468781835}
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
+  upgradeCardWave: {fileID: 0}
+  upgradeCardAdd: {fileID: 0}
   upgrades: []
   upgradeSpace: 200
   canvas: {fileID: 399676032}
@@ -1181,7 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1379,6 +1381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   cards: []
+  deck: []
+  discard: []
   cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}
   UIcanvas: {fileID: 399676028}
