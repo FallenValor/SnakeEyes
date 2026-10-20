@@ -936,7 +936,8 @@ MonoBehaviour:
     and the player is only given a limited amount of mana on each turn. Attack cards
     deal damage to enemies. Defense cards protect the player from enemy attacks.
     Healing cards restore the player''s health. After a wave of enemies is defeated,
-    the player can upgrade a class of cards to make them more powerful. '
+    the player can choose an upgrade that improves a card, adds a new card to the
+    deck, or gives the player more mana. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
