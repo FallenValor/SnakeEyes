@@ -34,15 +34,30 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/Credits.unity
     m_guid: 58e5c2d883d7c3f458d3e15d7e55429c
-  - m_enabled: 0
-    m_path: Assets/Scenes/old2.unity
-    m_guid: e132952004ecba443b1f87276b9f7095
   - m_enabled: 1
     m_path: Assets/Scenes/GameOver.unity
     m_guid: 7b4a44ab6ec505a4ab3580c68957753d
   - m_enabled: 1
     m_path: Assets/Scenes/3D TestScene.unity
     m_guid: 66e913326b8fb324d8904909e947078a
+  - m_enabled: 1
+    m_path: Assets/Scenes/Alpha Scenes/AlphaMainMenu.unity
+    m_guid: 8528d8fdd73c98d45bcc26d6b90d87b9
+  - m_enabled: 1
+    m_path: Assets/Scenes/Alpha Scenes/AlphaHowToPlay.unity
+    m_guid: b53dc6a8c855ceb49b02c80164819860
+  - m_enabled: 1
+    m_path: Assets/Scenes/Alpha Scenes/AlphaCredits.unity
+    m_guid: ff170dc381622964ca774caf67345b35
+  - m_enabled: 1
+    m_path: Assets/Scenes/AlphaEnvironment3.unity
+    m_guid: 2cc86a83ba98e6547a732f3644134c03
+  - m_enabled: 1
+    m_path: Assets/Scenes/AlphaEnvironment2.unity
+    m_guid: 92ba5b3bcf642af4c909b6ba3ac2393f
+  - m_enabled: 1
+    m_path: Assets/Scenes/AlphaEnvironment1.unity
+    m_guid: 4fce4fa5750f70848bfc56214bd48e13
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
