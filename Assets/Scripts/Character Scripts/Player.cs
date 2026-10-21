@@ -104,7 +104,15 @@ public class Player : Combatant
             deck[i] = temp;
         }
     }
-
+    public void RepopulateDeck()
+    {
+        for(int i = 0; i < discard.Count; i++)
+        {
+            deck.Add(discard[i]);
+        }
+        discard.Clear();
+        Shuffle();
+    }
     public void Draw()
     {
         if(deck.Count == 0)

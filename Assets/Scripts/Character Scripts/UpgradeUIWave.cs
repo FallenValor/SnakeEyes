@@ -48,6 +48,9 @@ public class UpgradeUIWave : MonoBehaviour
             case UpgradeTypeWave.CardAdd:
             controller.AddCardMenu();
             break;
+            case UpgradeTypeWave.CardUpgrade:
+            controller.UpgradeCardMenu();
+            break;
         }
     }
 }
