@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using Unity.Collections;
@@ -15,6 +16,7 @@ public class CardRealizer : MonoBehaviour
     [SerializeField] GameObject upgradeCard;
     [SerializeField] GameObject upgradeCardWave;
     [SerializeField] GameObject upgradeCardAdd;
+    [SerializeField] GameObject upgradeCardUpgrade;
     public List<GameObject> upgrades = new List<GameObject>();
     public float upgradeSpace = 200;
     [SerializeField] Canvas canvas;
@@ -117,7 +119,7 @@ public class CardRealizer : MonoBehaviour
                     Heal(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
                     break;
             }
-            enemy.nextIndex = Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
+            enemy.nextIndex = UnityEngine.Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
         }
 
     }
@@ -246,7 +248,7 @@ public class CardRealizer : MonoBehaviour
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
             up.GetComponent<CardUIObjectAdd>().player = player;
             up.GetComponent<CardUIObjectAdd>().controller = this;
-            switch(Random.Range(1,4))
+            switch(UnityEngine.Random.Range(1,4))
             {
                 case 1:
                 up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Attack, 8, 2);
@@ -259,6 +261,24 @@ public class CardRealizer : MonoBehaviour
                 break;
             }
             upgrades.Add(up);
+        }
+    }
+    public void UpgradeCardMenu()
+    {
+        foreach(GameObject obj in upgrades)
+        {
+            Destroy(obj);
+        }
+        player.RepopulateDeck();
+        for(int i = 0; i < player.deck.Count; i++)
+        {
+            var up = Instantiate(upgradeCardUpgrade, player.UIcanvas.transform);
+            up.transform.Translate(0, 300, 0);
+            up.transform.Translate((upgradeSpace * (i % 8)) - upgradeSpace * 4, Mathf.Floor(i / 8) * -300, 0);
+            up.GetComponent<CardUIObjectUpgrade>().card = player.deck[i];
+            up.GetComponent<CardUIObjectUpgrade>().controller = this;
+            upgrades.Add(up);
+            up.GetComponent<CardUIObjectUpgrade>().player = player;
         }
     }
     public void UpgradeShopEnd()

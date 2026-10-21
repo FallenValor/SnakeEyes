@@ -861,6 +861,7 @@ MonoBehaviour:
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
   upgradeCardWave: {fileID: 4343740730075922494, guid: e51776fa524d86448b2701b6e85c9626, type: 3}
   upgradeCardAdd: {fileID: 4343740730075922494, guid: 219a3afa5d885224bad9eee8629091b0, type: 3}
+  upgradeCardUpgrade: {fileID: 4343740730075922494, guid: a8f906086fffe7f4da73c52c5a78e588, type: 3}
   upgrades: []
   upgradeSpace: 200
   canvas: {fileID: 399676032}
@@ -1386,42 +1387,52 @@ MonoBehaviour:
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 0
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 0
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 0
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 0
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 1
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 1
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 1
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 1
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   - action: 1
     value: 4
     played: 0
     cost: 1
+    upgraded: 0
   discard: []
   cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}

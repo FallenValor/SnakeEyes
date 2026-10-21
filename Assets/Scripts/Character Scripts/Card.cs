@@ -15,6 +15,8 @@ public class Card
     public bool played;
     public int cost;
 
+    public bool upgraded = false;
+
     public Card(GameAction act, int val, int cos)
     {
         action = act;
