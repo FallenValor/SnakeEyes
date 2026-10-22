@@ -757,6 +757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1LayoutUpdated
       objectReference: {fileID: 0}
+    - target: {fileID: 6957379402655650267, guid: 6272487cfb52692448967bebab4816f2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dd13947b2e7a3e141b53ab06a314cb12, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -9150179783512994141, guid: 6272487cfb52692448967bebab4816f2, type: 3}
@@ -787,6 +791,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8896054717868603339, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dd13947b2e7a3e141b53ab06a314cb12, type: 2}
     - target: {fileID: -8679921383154817045, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -843,6 +851,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3533569738235960290, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c542bc261aa51c94fa7a2c34d72b3c75, type: 2}
+    - target: {fileID: -393687169728049988, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dd13947b2e7a3e141b53ab06a314cb12, type: 2}
+    - target: {fileID: 53836379204270939, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dd13947b2e7a3e141b53ab06a314cb12, type: 2}
     - target: {fileID: 919132149155446097, guid: 9b6a9968f64bdeb45971f8d662e0bd08, type: 3}
       propertyPath: m_Name
       value: SnakeEyes_Model_Environment2
