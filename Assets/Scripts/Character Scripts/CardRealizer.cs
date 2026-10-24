@@ -74,7 +74,7 @@ public class CardRealizer : MonoBehaviour
             }
             enemy.CardString.text = txt;
         }
-        
+        enemy.StatusUpdate();
     }
 
     private void PlayerTurnUpdate()
@@ -100,12 +100,17 @@ public class CardRealizer : MonoBehaviour
         {
             player.manaFill += 1;
         }
-        player.mana = player.manaFill + player.manaStartBonus;
+        player.mana = player.manaFill + player.manaStartBonus + player.manaNext;
+        if(player.manaNext > 0)
+        {
+            player.manaNext = 0;
+        }
+        player.StatusUpdate();
     }
 
     private void EnemyRealization()
     {
-        if(enemy.Health > 0)
+        if(enemy.Health > 0 && enemy.Frozen == 0)
         {
             switch (enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].action)
             {
@@ -141,6 +146,21 @@ public class CardRealizer : MonoBehaviour
                     case GameAction.Heal:
                         Heal(player, player.cards[i].value);
                         break;
+                    case GameAction.Feint:
+                        Feint(player, enemy, player.cards[i].value);
+                        break;
+                    case GameAction.Poison:
+                        Poison(player, enemy, player.cards[i].value);
+                        break;
+                    case GameAction.Freeze:
+                        Freeze(enemy, player.cards[i].value);
+                        break;
+                    case GameAction.Evade:
+                        Evade(player, player.cards[i].value);
+                        break;
+                    case GameAction.Focus:
+                        Focus(player, player.cards[i].value);
+                        break;
                 }
                 Card temp = player.cards[i];
                 temp.played = false;
@@ -152,24 +172,57 @@ public class CardRealizer : MonoBehaviour
 
     void Attack(Combatant attacker, Combatant defender, int val)
     {
-        int damage = val * attacker.Attack;
-        if(defender.Armor > 0)
+        if(defender.Evade == 0)
         {
-            if(defender.Armor > damage)
+            int damage = val * attacker.Attack;
+            if(defender.Armor > 0)
             {
-                defender.Armor -= damage;
+                if(defender.Armor > damage)
+                {
+                    defender.Armor -= damage;
+                }
+                else
+                {
+                    damage -= defender.Armor;
+                    defender.Armor = 0;
+                    defender.Health -= damage;
+                }
             }
             else
             {
-                damage -= defender.Armor;
-                defender.Armor = 0;
                 defender.Health -= damage;
             }
         }
-        else
+        
+    }
+
+    void Feint(Combatant attacker, Combatant defender, int val)
+    {
+        Shield(attacker, val);
+        Attack(attacker,defender, val);
+    }
+
+    void Poison(Combatant attacker, Combatant defender, int val)
+    {
+        if(defender.Evade == 0)
         {
+            int damage = val * attacker.Attack;
             defender.Health -= damage;
         }
+    }
+
+    void Freeze(Combatant defender, int val)
+    {
+        defender.Frozen += val;
+    }
+    void Evade(Combatant defender, int val)
+    {
+        defender.Evade += val;
+    }
+
+    void Focus(Player player, int val)
+    {
+        player.manaNext = val;
     }
 
     void Shield(Combatant defender, int val)
@@ -248,7 +301,7 @@ public class CardRealizer : MonoBehaviour
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
             up.GetComponent<CardUIObjectAdd>().player = player;
             up.GetComponent<CardUIObjectAdd>().controller = this;
-            switch(UnityEngine.Random.Range(1,4))
+            switch(UnityEngine.Random.Range(1,9))
             {
                 case 1:
                 up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Attack, 8, 2);
@@ -258,6 +311,21 @@ public class CardRealizer : MonoBehaviour
                 break;
                 case 3:
                 up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Heal, 20, 3);
+                break;
+                case 4:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Poison, 4, 3);
+                break;
+                case 5:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Evade, 1, 1);
+                break;
+                case 6:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Freeze, 1, 2);
+                break;
+                case 7:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Focus, 2, 1);
+                break;
+                case 8:
+                up.GetComponent<CardUIObjectAdd>().card = new Card(GameAction.Feint, 2, 1);
                 break;
             }
             upgrades.Add(up);
@@ -274,7 +342,7 @@ public class CardRealizer : MonoBehaviour
         {
             var up = Instantiate(upgradeCardUpgrade, player.UIcanvas.transform);
             up.transform.Translate(0, 300, 0);
-            up.transform.Translate((upgradeSpace * (i % 8)) - upgradeSpace * 4, Mathf.Floor(i / 8) * -300, 0);
+            up.transform.Translate((upgradeSpace * (i % 8)) - upgradeSpace * 4, Mathf.Floor(i / 8) * -220, 0);
             up.GetComponent<CardUIObjectUpgrade>().card = player.deck[i];
             up.GetComponent<CardUIObjectUpgrade>().controller = this;
             upgrades.Add(up);
