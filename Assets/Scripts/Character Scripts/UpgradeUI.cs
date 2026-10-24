@@ -29,11 +29,11 @@ public class UpgradeUI : MonoBehaviour
             break;
             case 3:
             type = UpgradeType.Health;
-            text.text = "Health + 4";
+            text.text = "Health + 10";
             break;
             case 4:
             type = UpgradeType.Heal;
-            text.text = "Heal 20";
+            text.text = "Heal 30";
             break;
         }
     }
@@ -55,8 +55,8 @@ public class UpgradeUI : MonoBehaviour
             controller.player.Defense += 1;
             break;
             case UpgradeType.Health:
-            controller.player.maxHealth += 4;
-            controller.player.Health += 4;
+            controller.player.maxHealth += 10;
+            controller.player.Health += 10;
             break;
             case UpgradeType.Mana:
             controller.player.manaStartBonus += 1;
@@ -65,13 +65,13 @@ public class UpgradeUI : MonoBehaviour
             controller.player.manaStartBonus += 1;
             break;
             case UpgradeType.Heal:
-            if(controller.player.Health + 20 > controller.player.maxHealth)
+            if(controller.player.Health + 30 > controller.player.maxHealth)
             {
                 controller.player.Health = controller.player.maxHealth;
             }
             else
             {
-                controller.player.Health += 20;
+                controller.player.Health += 30;
             }
             break;
         }

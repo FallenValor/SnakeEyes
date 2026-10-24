@@ -32,6 +32,21 @@ public class Combatant : MonoBehaviour
         get { return DF; }
         set { DF = value; }
     }
+
+    private int frozen;
+
+    public int Frozen
+    {
+        get { return frozen; }
+        set { frozen = value; }
+    }
+    private int evade;
+
+    public int Evade
+    {
+        get { return evade; }
+        set { evade = value; }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,5 +57,16 @@ public class Combatant : MonoBehaviour
     void Update()
     {
         
+    }
+    public void StatusUpdate()
+    {
+        if(Evade > 0)
+        {
+            Evade -= 1;
+        }
+        if(Frozen > 0)
+        {
+            Frozen -= 1;
+        }
     }
 }

@@ -31,6 +31,7 @@ public class Player : Combatant
     public int mana = 0;
 
     public int manaFill = 1;
+    public int manaNext = 0;
     public int manaStartBonus = 0;
 
     [SerializeField] TMP_Text Manaval;

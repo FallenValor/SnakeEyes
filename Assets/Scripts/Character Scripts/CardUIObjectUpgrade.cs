@@ -49,12 +49,38 @@ public class CardUIObjectUpgrade : MonoBehaviour
                 valueText.text = card.value.ToString();
                 cardImage.sprite = cardSpriteShield;
                 break;
+            case GameAction.Poison:
+                nameText.text = "Poison";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteAttack;
+                break;
+            case GameAction.Freeze:
+                nameText.text = "Freeze";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteAttack;
+                break;
+            case GameAction.Feint:
+                nameText.text = "Feint";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteAttack;
+                break;
+            case GameAction.Evade:
+                nameText.text = "Evade";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteAttack;
+                break;
+            case GameAction.Focus:
+                nameText.text = "Focus";
+                valueText.text = card.value.ToString();
+                cardImage.sprite = cardSpriteAttack;
+                break;
         }
+        costText.text = card.cost.ToString();
         costText.text = card.cost.ToString();
         //MouseChecker();
         if(card.upgraded)
         {
-            
+            buttonText.text = "UPGRADED";
         }
     }
 

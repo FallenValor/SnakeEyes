@@ -6,6 +6,12 @@ public enum GameAction
     Attack,
     Shield,
     Heal,
+    Poison,
+    Freeze,
+    Feint,
+    Evade,
+    Focus,
+    
 }
 [System.Serializable]
 public class Card
