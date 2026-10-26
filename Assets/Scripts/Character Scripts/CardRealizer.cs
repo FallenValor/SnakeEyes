@@ -48,7 +48,7 @@ public class CardRealizer : MonoBehaviour
         if(enemy.Health <= 0)
         {
             player.EmptyHand();
-            if (enemy.enemyCounter < enemy.type.Count - 1)
+            if (enemy.enemyCounter < enemy.typeCur.Count - 1)
             {
                 enemy.enemyCounter += 1;
                 UpgradeShopStart();
@@ -63,13 +63,13 @@ public class CardRealizer : MonoBehaviour
         else
         {
             string txt = "Next Action:\n";
-            switch (enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].action)
+            switch (enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].action)
             {
                 case GameAction.Attack:
-                    txt += "Attack, " + enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Attack.ToString();
+                    txt += "Attack, " + enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Attack.ToString();
                     break;
                 case GameAction.Shield:
-                    txt += "Shield, " + enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Defense.ToString();
+                    txt += "Shield, " + enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Defense.ToString();
                     break;
             }
             enemy.CardString.text = txt;
@@ -112,19 +112,19 @@ public class CardRealizer : MonoBehaviour
     {
         if(enemy.Health > 0 && enemy.Frozen == 0)
         {
-            switch (enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].action)
+            switch (enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].action)
             {
                 case GameAction.Attack:
-                    Attack(enemy, player, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    Attack(enemy, player, enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].value);
                     break;
                 case GameAction.Shield:
-                    Shield(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    Shield(enemy, enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].value);
                     break;
                 case GameAction.Heal:
-                    Heal(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    Heal(enemy, enemy.typeCur[enemy.enemyCounter].actions[enemy.nextIndex].value);
                     break;
             }
-            enemy.nextIndex = UnityEngine.Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
+            enemy.nextIndex = UnityEngine.Random.Range(0, enemy.typeCur[enemy.enemyCounter].actions.Count);
         }
 
     }
