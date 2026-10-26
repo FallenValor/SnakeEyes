@@ -26,8 +26,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 7b4a44ab6ec505a4ab3580c68957753d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3D TestScene.unity
     guid: 66e913326b8fb324d8904909e947078a
+  - enabled: 1
+    path: Assets/Scenes/AlphaEnvironment1.unity
+    guid: 4fce4fa5750f70848bfc56214bd48e13
+  - enabled: 1
+    path: Assets/Scenes/AlphaEnvironment2.unity
+    guid: 92ba5b3bcf642af4c909b6ba3ac2393f
+  - enabled: 1
+    path: Assets/Scenes/AlphaEnvironment3.unity
+    guid: 2cc86a83ba98e6547a732f3644134c03
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
