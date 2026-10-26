@@ -50,7 +50,7 @@ public class CardUIObject : MonoBehaviour
                 break;
             case GameAction.Poison:
                 nameText.text = "Poison";
-                valueText.text = card.value.ToString();
+                valueText.text = (card.value * player.Attack).ToString();;
                 cardImage.sprite = cardSpriteAttack;
                 break;
             case GameAction.Freeze:
@@ -60,7 +60,7 @@ public class CardUIObject : MonoBehaviour
                 break;
             case GameAction.Feint:
                 nameText.text = "Feint";
-                valueText.text = card.value.ToString();
+                valueText.text = (card.value * player.Attack).ToString() + " ATK + " + (card.value * player.Defense).ToString() + " AMR";
                 cardImage.sprite = cardSpriteAttack;
                 break;
             case GameAction.Evade:

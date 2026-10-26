@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 public enum UpgradeTypeWave
 {
-    Mana,
+    Heal,
     CardAdd,
     CardUpgrade
 }
@@ -17,8 +17,8 @@ public class UpgradeUIWave : MonoBehaviour
         switch(Random.Range(1,4))
         {
             case 1:
-            type = UpgradeTypeWave.Mana;
-            text.text = "Starting Mana + 1";
+            type = UpgradeTypeWave.Heal;
+            text.text = "Heal 30";
             break;
             case 2:
             type = UpgradeTypeWave.CardAdd;
@@ -41,9 +41,16 @@ public class UpgradeUIWave : MonoBehaviour
     {
         switch(type)
         {
-            case UpgradeTypeWave.Mana:
-            controller.player.manaStartBonus += 1;
-            controller.WinUI();
+            case UpgradeTypeWave.Heal:
+            if(controller.player.Health + 30 > controller.player.maxHealth)
+            {
+                controller.player.Health = controller.player.maxHealth;
+            }
+            else
+            {
+                controller.player.Health += 30;
+            }
+            controller.UpgradeShopEnd();
             break;
             case UpgradeTypeWave.CardAdd:
             controller.AddCardMenu();
