@@ -15,7 +15,7 @@ public class WaveComplete : MonoBehaviour
             SceneManager.LoadScene("Scenes/AlphaEnvironment3");
             break;
             case "AlphaEnvironment3":
-            SceneManager.LoadScene("Scenes/MainMenu");
+            SceneManager.LoadScene("Scenes/AlphaMainMenu");
             break;
         }
         FindAnyObjectByType<CardRealizer>().UpgradeShopEnd();
