@@ -265,9 +265,9 @@ public class CardRealizer : MonoBehaviour
         button.SetActive(false);
         for(int i = 0; i < 3; i++)
         {
-            var up = Instantiate(upgradeCard, player.UIcanvas.transform);
+            var up = Instantiate(upgradeCardWave, player.UIcanvas.transform);
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
-            up.GetComponent<UpgradeUI>().controller = this;
+            up.GetComponent<UpgradeUIWave>().controller = this;
             upgrades.Add(up);
         }
     }
@@ -283,9 +283,9 @@ public class CardRealizer : MonoBehaviour
         button.SetActive(false);
         for(int i = 0; i < 3; i++)
         {
-            var up = Instantiate(upgradeCardWave, player.UIcanvas.transform);
+            var up = Instantiate(upgradeCard, player.UIcanvas.transform);
             up.transform.Translate((upgradeSpace * i) - upgradeSpace, 0, 0);
-            up.GetComponent<UpgradeUIWave>().controller = this;
+            up.GetComponent<UpgradeUI>().controller = this;
             upgrades.Add(up);
         }
     }

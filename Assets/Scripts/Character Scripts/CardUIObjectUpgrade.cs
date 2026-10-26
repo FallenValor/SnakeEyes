@@ -93,9 +93,27 @@ public class CardUIObjectUpgrade : MonoBehaviour
     {
         if(!card.upgraded)
         {
-            card.value += 2;
+            switch(card.action)
+            {
+                case GameAction.Attack:
+                case GameAction.Shield:
+                case GameAction.Poison:
+                case GameAction.Feint:
+                card.value += 2;
+                break;
+                case GameAction.Heal:
+                card.value += 5;
+                card.cost -= 1;
+                break;
+                case GameAction.Evade:
+                case GameAction.Freeze:
+                case GameAction.Focus:
+                card.value += 1;
+                break;
+
+            }
             card.upgraded = true;
-            controller.WinUI();
+            controller.UpgradeShopEnd();
         }
     }
 
