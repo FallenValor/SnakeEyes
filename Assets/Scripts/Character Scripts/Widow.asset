@@ -18,9 +18,9 @@ MonoBehaviour:
   - action: 0
     value: 6
   - action: 1
-    value: 6
+    value: 4
   - action: 1
-    value: 8
+    value: 6
   - action: 0
     value: 2
   baseHealth: 50

@@ -26,6 +26,10 @@ MonoBehaviour:
   - action: 0
     value: 1000
   - action: 0
+    value: 4
+  - action: 1
+    value: 4
+  - action: 1
     value: 6
   - action: 1
     value: 6
@@ -34,11 +38,7 @@ MonoBehaviour:
   - action: 1
     value: 8
   - action: 1
-    value: 16
-  - action: 1
-    value: 16
-  - action: 1
-    value: 40
+    value: 12
   baseHealth: 80
   attack: 1
   defense: 1
