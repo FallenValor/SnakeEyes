@@ -10,18 +10,15 @@ public class WaveComplete : MonoBehaviour
         {
             case "AlphaEnvironment1":
             SceneManager.LoadScene("Scenes/AlphaEnvironment2");
-            FindAnyObjectByType<Enemy>().typeCur = FindAnyObjectByType<Enemy>().type2;
             break;
             case "AlphaEnvironment2":
             SceneManager.LoadScene("Scenes/AlphaEnvironment3");
-            FindAnyObjectByType<Enemy>().typeCur = FindAnyObjectByType<Enemy>().type3;
             break;
             case "AlphaEnvironment3":
             SceneManager.LoadScene("Scenes/MainMenu");
             break;
         }
         FindAnyObjectByType<CardRealizer>().UpgradeShopEnd();
-        FindAnyObjectByType<Enemy>().Initialize();
         Destroy(gameObject);
     }
 

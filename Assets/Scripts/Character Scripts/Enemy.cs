@@ -6,14 +6,10 @@ using UnityEngine.SceneManagement;
 public class Enemy : Combatant
 {
     [SerializeField] public List<EnemyType> type = new List<EnemyType>();
-    [SerializeField] public List<EnemyType> type2 = new List<EnemyType>();
-    [SerializeField] public List<EnemyType> type3 = new List<EnemyType>();
-
-    public List<EnemyType> typeCur;
-    
     [SerializeField] public TMP_Text HPString;
     [SerializeField] public TMP_Text ArmorString;
     [SerializeField] public TMP_Text CardString;
+    [SerializeField] public List<int> waveIndexes = new List<int>(){1, 4, 7};
     public int nextIndex = 0;
     public int enemyCounter = 0;
     public int waveMultiplier = 1;
@@ -21,7 +17,6 @@ public class Enemy : Combatant
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        typeCur = type;
         Initialize();
     }
 
@@ -40,10 +35,10 @@ public class Enemy : Combatant
                 Init(type);
             break;
             case "AlphaEnvironment2":
-                Init(type2);
+                Init(type);
             break;
             case "AlphaEnvironment3":
-                Init(type3);
+                Init(type);
             break;
         }
     }
