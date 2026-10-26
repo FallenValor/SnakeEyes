@@ -1,10 +1,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Combatant
 {
     [SerializeField] public List<EnemyType> type = new List<EnemyType>();
+    [SerializeField] public List<EnemyType> type2 = new List<EnemyType>();
+    [SerializeField] public List<EnemyType> type3 = new List<EnemyType>();
+
+    public List<EnemyType> typeCur;
     
     [SerializeField] public TMP_Text HPString;
     [SerializeField] public TMP_Text ArmorString;
@@ -16,6 +21,7 @@ public class Enemy : Combatant
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        typeCur = type;
         Initialize();
     }
 
@@ -26,12 +32,26 @@ public class Enemy : Combatant
         ArmorString.text = "Armor: " + Armor.ToString();
         
     }
-
     public void Initialize()
     {
+        switch(SceneManager.GetActiveScene().name)
+        {
+            case "AlphaEnvironment1":
+                Init(type);
+            break;
+            case "AlphaEnvironment2":
+                Init(type2);
+            break;
+            case "AlphaEnvironment3":
+                Init(type3);
+            break;
+        }
+    }
+    void Init(List<EnemyType> type)
+    {
         nextIndex = Random.Range(0, type[enemyCounter].actions.Count);
-        Health = type[enemyCounter].baseHealth * waveMultiplier;
-        Attack = type[enemyCounter].attack * waveMultiplier;
+        Health = type[enemyCounter].baseHealth;
+        Attack = type[enemyCounter].attack;
         Defense = type[enemyCounter].defense;
         string txt = "Next Action:\n";
         switch(type[enemyCounter].actions[nextIndex].action)
@@ -52,3 +72,4 @@ public class Enemy : Combatant
         model.transform.SetPositionAndRotation(gameObject.transform.position,gameObject.transform.rotation);
     }
 }
+
