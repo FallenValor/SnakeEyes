@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     public void GoBack()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("AlphaMainMenu");
     }
 
     // Update is called once per frame

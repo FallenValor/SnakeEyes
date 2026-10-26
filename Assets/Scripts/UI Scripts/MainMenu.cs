@@ -16,17 +16,17 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("3D TestScene");
+        SceneManager.LoadScene("AlphaEnvironment1");
     }
 
     public void OpenHowToPlay()
     {
-        SceneManager.LoadScene("HowToPlay");
+        SceneManager.LoadScene("AlphaHowToPlay");
     }
 
     public void OpenCredits()
     {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("AlphaCredits");
     }
 
     public void QuitGame()
