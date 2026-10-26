@@ -426,8 +426,9 @@ MonoBehaviour:
   enemy: {fileID: 1122662983}
   button: {fileID: 468781835}
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
-  upgradeCardWave: {fileID: 0}
-  upgradeCardAdd: {fileID: 0}
+  upgradeCardWave: {fileID: 4343740730075922494, guid: e51776fa524d86448b2701b6e85c9626, type: 3}
+  upgradeCardAdd: {fileID: 4343740730075922494, guid: 219a3afa5d885224bad9eee8629091b0, type: 3}
+  upgradeCardUpgrade: {fileID: 4343740730075922494, guid: a8f906086fffe7f4da73c52c5a78e588, type: 3}
   upgrades: []
   upgradeSpace: 200
   canvas: {fileID: 399676032}
@@ -658,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1035,7 +1036,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   cards: []
-  deck: []
+  deck:
+  - action: 0
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 0
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 0
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 0
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 0
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 1
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 1
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 1
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 1
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
+  - action: 1
+    value: 4
+    played: 0
+    cost: 1
+    upgraded: 0
   discard: []
   cardObjs: []
   cardObject: {fileID: 4343740730075922494, guid: e868abb3c93396b40a24bfe80f88800b, type: 3}
@@ -1047,6 +1098,7 @@ MonoBehaviour:
   maxHealth: 30
   mana: 0
   manaFill: 1
+  manaNext: 0
   manaStartBonus: 0
   Manaval: {fileID: 630826546}
   HPval: {fileID: 1010029753}
@@ -1668,7 +1720,7 @@ Transform:
   m_GameObject: {fileID: 1122662982}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48, y: 0.39, z: 0}
+  m_LocalPosition: {x: -0.662, y: 0.324, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1712,7 +1764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.481, y: 0.793}
+  m_AnchoredPosition: {x: 0.257, y: 0.793}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132649964
