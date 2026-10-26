@@ -87,7 +87,7 @@ public class CardUIObjectAdd : MonoBehaviour
     public void OnClick()
     {
         player.deck.Add(card);
-        controller.WinUI();
+        controller.UpgradeShopEnd();
     }
 
     void OnDestroy()

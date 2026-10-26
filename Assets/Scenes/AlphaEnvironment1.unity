@@ -3844,6 +3844,7 @@ MonoBehaviour:
   HPString: {fileID: 63735736}
   ArmorString: {fileID: 356617820}
   CardString: {fileID: 2113544815}
+  waveIndexes: 010000000400000007000000
   nextIndex: 0
   enemyCounter: 0
   waveMultiplier: 1
@@ -4453,11 +4454,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   type:
-  - {fileID: 11400000, guid: 1d31b9a894357ed44af9d6a1e66d55ce, type: 2}
-  - {fileID: 11400000, guid: bb8ee9b6ca60a5141b8e0d39a6a7e359, type: 2}
+  - {fileID: 11400000, guid: 7f61218f227ed5f448dc964199556b46, type: 2}
+  - {fileID: 11400000, guid: 7f61218f227ed5f448dc964199556b46, type: 2}
+  - {fileID: 11400000, guid: 2da48fb79906726458a9234b4d7fca67, type: 2}
+  - {fileID: 11400000, guid: c24c0b73705580341958f103a2a40d7c, type: 2}
+  - {fileID: 11400000, guid: 2da48fb79906726458a9234b4d7fca67, type: 2}
+  - {fileID: 11400000, guid: c24c0b73705580341958f103a2a40d7c, type: 2}
+  - {fileID: 11400000, guid: 2da48fb79906726458a9234b4d7fca67, type: 2}
+  - {fileID: 11400000, guid: 417c6a67fccd1bc4d9f3d5573bdbd3e3, type: 2}
+  - {fileID: 11400000, guid: c24c0b73705580341958f103a2a40d7c, type: 2}
+  - {fileID: 11400000, guid: 417c6a67fccd1bc4d9f3d5573bdbd3e3, type: 2}
+  - {fileID: 11400000, guid: 417c6a67fccd1bc4d9f3d5573bdbd3e3, type: 2}
+  - {fileID: 11400000, guid: 6107eb9b26e272f41bdc9336d334e563, type: 2}
+  - {fileID: 11400000, guid: 2da48fb79906726458a9234b4d7fca67, type: 2}
   HPString: {fileID: 2057764571}
   ArmorString: {fileID: 94511183}
   CardString: {fileID: 552761530}
+  waveIndexes: 03000000070000000b000000
   nextIndex: 0
   enemyCounter: 0
   waveMultiplier: 1
