@@ -414,11 +414,53 @@ MonoBehaviour:
   player: {fileID: 0}
   nameText: {fileID: 8826730955575180537}
   buttonText: {fileID: 2165418090836707523}
-  valueText: {fileID: 3647675736585513161}
-  costText: {fileID: 1951638723582935891}
-  cardSpriteAttack: {fileID: -1758791825, guid: 035f1efd18ed2b841bf2280271418438, type: 3}
-  cardSpriteShield: {fileID: -1001299622, guid: 035f1efd18ed2b841bf2280271418438, type: 3}
-  cardImage: {fileID: 1988794778419672198}
+  cardSpriteColors:
+  - {fileID: 21300000, guid: cd4080e0ddbce4941892733bb5ed974e, type: 3}
+  - {fileID: 21300000, guid: f08ea32baf081a346aef818173557b3e, type: 3}
+  - {fileID: 21300000, guid: 0df440e9fa9c6954ea6ea761aa607e43, type: 3}
+  - {fileID: 21300000, guid: e63f9d8d6d0932446ad04f86176aa61d, type: 3}
+  - {fileID: 21300000, guid: 554ef896c3bcb3c4e8b7ea761c4d957c, type: 3}
+  cardSpriteSymbols:
+  - {fileID: 21300000, guid: a8a0bc425cd98af4fb761c35a79be283, type: 3}
+  - {fileID: 21300000, guid: 033e4402cdc60104d99c6eaeddcbf7a9, type: 3}
+  - {fileID: 21300000, guid: bcf14b6685520c84ea17fe08ddc34ff8, type: 3}
+  - {fileID: 21300000, guid: d31a42cc56fbd0840924f1b375eebfe6, type: 3}
+  - {fileID: 21300000, guid: d9ddbf3c03dc945409551f0cfaa6e24d, type: 3}
+  - {fileID: 21300000, guid: 26f41d77ae0e2d24eaecda5ab7d1da8d, type: 3}
+  - {fileID: 21300000, guid: 8dc60f919b42a8843b5fb83fc22d684c, type: 3}
+  - {fileID: 21300000, guid: 72f3b332017fcf14da184d214bfb198b, type: 3}
+  - {fileID: 21300000, guid: d2943824c6922384bb87b58fdb35988a, type: 3}
+  - {fileID: 21300000, guid: 8d43e605706f5fd4291e52d6bc8906e5, type: 3}
+  cardSpriteDecos:
+  - {fileID: 21300000, guid: fb5830d530c80d945a77d4caaad90073, type: 3}
+  - {fileID: 21300000, guid: 4e69d7c0e0dfbe74cbd09921f3646143, type: 3}
+  - {fileID: 21300000, guid: 7e4d871237e5a484681a7760b3f3b345, type: 3}
+  - {fileID: 21300000, guid: 630ab82735a6d2e4ca1b0df2ab8612c2, type: 3}
+  - {fileID: 21300000, guid: 87fe8acd4b98daf418c99a202bfb480c, type: 3}
+  cardSpriteCosts:
+  - {fileID: 21300000, guid: 98cb5510b9a8f2a4193ccb980a236673, type: 3}
+  - {fileID: 21300000, guid: e7fcc307f9109304d991cab7ada40061, type: 3}
+  - {fileID: 21300000, guid: 99e96bb8fc1ad82469ddc5241221c4c5, type: 3}
+  - {fileID: 21300000, guid: bddc73b02b7e65f4eb966cf1ef948acf, type: 3}
+  - {fileID: 21300000, guid: c06b26d5911c494418feaa9dc80a6412, type: 3}
+  - {fileID: 21300000, guid: 924d25d36a2611947a8d4b60552ddc7d, type: 3}
+  - {fileID: 21300000, guid: 357a33efd47581449b098d82fba951a3, type: 3}
+  - {fileID: 21300000, guid: 3075a7e25c294b9438778ab8886ef2c1, type: 3}
+  - {fileID: 21300000, guid: 1c0d1a1a48a04b54b9c27e074afddd38, type: 3}
+  cardSpriteValues:
+  - {fileID: 21300000, guid: 4be7568fac1e9764db9e431e540eb274, type: 3}
+  - {fileID: 21300000, guid: 6f3728d67effce74aaff40b4d4c10dd2, type: 3}
+  - {fileID: 21300000, guid: b570e46f480e12544b35c22619691eb3, type: 3}
+  - {fileID: 21300000, guid: 2d4821a6b44d14c48a29ce91be651cd6, type: 3}
+  - {fileID: 21300000, guid: c6315baa0030a9e48852006c672d7eae, type: 3}
+  - {fileID: 21300000, guid: ac8133acff5ea5448b1c4c1a642ceec6, type: 3}
+  - {fileID: 21300000, guid: fdf56b6c29078f24ab5fdf2e1397c405, type: 3}
+  - {fileID: 21300000, guid: c91771d16cd5a4542afdbcf0b8ec0a3e, type: 3}
+  - {fileID: 21300000, guid: 9911267e0be74704bb312611f8fa8682, type: 3}
+  - {fileID: 21300000, guid: 8d6084ba0725fab438aad7be5f9d2dbe, type: 3}
+  - {fileID: 21300000, guid: 3d90642bcfca1d842b0f5969ab193c1b, type: 3}
+  cardSpriteCircle: {fileID: 21300000, guid: becd13e283e246a4abfc2a6a1a67bf39, type: 3}
+  cardSpriteBorder: {fileID: 21300000, guid: 56320e674c586924b8e7ec1c078ea910, type: 3}
 --- !u!1 &5823557780711909354
 GameObject:
   m_ObjectHideFlags: 0

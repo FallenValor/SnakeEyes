@@ -4,6 +4,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class CardUIObject : MonoBehaviour
 {
@@ -12,19 +13,22 @@ public class CardUIObject : MonoBehaviour
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text buttonText;
 
-    [SerializeField] TMP_Text valueText;
+    //[SerializeField] TMP_Text valueText;
 
-    [SerializeField] TMP_Text costText;
+    //[SerializeField] TMP_Text costText;
 
-    [SerializeField] Sprite cardSpriteAttack;
-    [SerializeField] Sprite cardSpriteShield;
-    //[SerializeField] Sprite cardSpriteType;
-    //[SerializeField] Sprite cardSpriteBorder;
-    //[SerializeField] Sprite cardSpriteColor;
-    //[SerializeField] Sprite cardSprite;
-    //[SerializeField] Sprite cardSpriteCost;
-    //[SerializeField] Sprite cardSpriteValue;
-    [SerializeField] SpriteRenderer cardImage;
+    //[SerializeField] Sprite cardSpriteAttack;
+    //[SerializeField] Sprite cardSpriteShield;
+    
+    //[SerializeField] SpriteRenderer cardImage;
+
+    [SerializeField] List <Sprite> cardSpriteColors;
+    [SerializeField] List <Sprite> cardSpriteSymbols;
+    [SerializeField] List<Sprite> cardSpriteDecos;
+    [SerializeField] List <Sprite> cardSpriteCosts;
+    [SerializeField] List <Sprite> cardSpriteValues;
+    [SerializeField] Sprite cardSpriteCircle;
+    [SerializeField] Sprite cardSpriteBorder;
 
     bool played = false;
 
@@ -40,47 +44,39 @@ public class CardUIObject : MonoBehaviour
         switch(card.action)
         {
             case GameAction.Attack:
-            nameText.text = "Attack";
-            valueText.text = (card.value * player.Attack).ToString();
-                cardImage.sprite = cardSpriteAttack;
+                nameText.text = "Attack";
+                cardSpriteColors[0]
                 break;
             case GameAction.Shield:
                 nameText.text = "Shield";
-                valueText.text = (card.value * player.Defense).ToString();
-                cardImage.sprite = cardSpriteShield;
+                
                 break;
             case GameAction.Heal:
                 nameText.text = "Heal";
-                valueText.text = card.value.ToString();
-                cardImage.sprite = cardSpriteShield;
+                
                 break;
             case GameAction.Poison:
                 nameText.text = "Poison";
-                valueText.text = (card.value * player.Attack).ToString();;
-                cardImage.sprite = cardSpriteAttack;
+                
                 break;
             case GameAction.Freeze:
                 nameText.text = "Freeze";
-                valueText.text = card.value.ToString();
-                cardImage.sprite = cardSpriteAttack;
+                
                 break;
             case GameAction.Feint:
                 nameText.text = "Feint";
-                valueText.text = (card.value * player.Attack).ToString() + " ATK + " + (card.value * player.Defense).ToString() + " AMR";
-                cardImage.sprite = cardSpriteAttack;
+                
                 break;
             case GameAction.Evade:
                 nameText.text = "Evade";
-                valueText.text = card.value.ToString();
-                cardImage.sprite = cardSpriteAttack;
+                
                 break;
             case GameAction.Focus:
                 nameText.text = "Focus";
-                valueText.text = card.value.ToString();
-                cardImage.sprite = cardSpriteAttack;
+                
                 break;
         }
-        costText.text = card.cost.ToString();
+        
         //MouseChecker();
     }
 
