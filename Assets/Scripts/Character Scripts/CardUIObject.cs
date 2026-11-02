@@ -18,6 +18,12 @@ public class CardUIObject : MonoBehaviour
 
     [SerializeField] Sprite cardSpriteAttack;
     [SerializeField] Sprite cardSpriteShield;
+    //[SerializeField] Sprite cardSpriteType;
+    //[SerializeField] Sprite cardSpriteBorder;
+    //[SerializeField] Sprite cardSpriteColor;
+    //[SerializeField] Sprite cardSprite;
+    //[SerializeField] Sprite cardSpriteCost;
+    //[SerializeField] Sprite cardSpriteValue;
     [SerializeField] SpriteRenderer cardImage;
 
     bool played = false;
