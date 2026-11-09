@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class CardUIObject : MonoBehaviour
 {
@@ -13,16 +14,19 @@ public class CardUIObject : MonoBehaviour
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text buttonText;
 
-    //[SerializeField] TMP_Text valueText;
+    [SerializeField] TMP_Text valueText;
 
     //[SerializeField] TMP_Text costText;
 
     //[SerializeField] Sprite cardSpriteAttack;
     //[SerializeField] Sprite cardSpriteShield;
     
-    //[SerializeField] SpriteRenderer cardImage;
+    [SerializeField] GameObject cardImage;
+    [SerializeField] GameObject cardColor;
+    [SerializeField] GameObject cardBorder;
+    [SerializeField] GameObject cardCost;
 
-    [SerializeField] List <Sprite> cardSpriteColors;
+    [SerializeField] List <Color> cardSpriteColors;
     [SerializeField] List <Sprite> cardSpriteSymbols;
     [SerializeField] List<Sprite> cardSpriteDecos;
     [SerializeField] List <Sprite> cardSpriteCosts;
@@ -45,38 +49,49 @@ public class CardUIObject : MonoBehaviour
         {
             case GameAction.Attack:
                 nameText.text = "Attack";
-                cardSpriteColors[0]
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[0];
                 break;
             case GameAction.Shield:
                 nameText.text = "Shield";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[1];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[1];
                 break;
             case GameAction.Heal:
                 nameText.text = "Heal";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
                 break;
             case GameAction.Poison:
                 nameText.text = "Poison";
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[3];
                 
                 break;
             case GameAction.Freeze:
                 nameText.text = "Freeze";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[4];
                 break;
             case GameAction.Feint:
                 nameText.text = "Feint";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[5];
                 break;
             case GameAction.Evade:
                 nameText.text = "Evade";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[6];
                 break;
             case GameAction.Focus:
                 nameText.text = "Focus";
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[7];
                 break;
+            
         }
-        
+        valueText.text = card.value.ToString();
+        //cardCost.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[7];
         //MouseChecker();
     }
 

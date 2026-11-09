@@ -81,6 +81,7 @@ public class CardRealizer : MonoBehaviour
     {
         if(player.Health <= 0)
         {
+            Destroy(FindAnyObjectByType<DontDestroy>());
             SceneManager.LoadScene("Scenes/GameOver");
         }
         if(player.cards.Count > 1)
