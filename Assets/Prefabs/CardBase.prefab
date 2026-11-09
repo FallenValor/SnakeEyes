@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8601344165725768772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
   cardImage: {fileID: 6092369836111286205}
   cardColor: {fileID: 6777422495312688390}
   cardBorder: {fileID: 0}
+  cardCost: {fileID: 0}
   cardSpriteColors:
   - {r: 0.754717, g: 0.2966654, b: 0.2966654, a: 1}
   - {r: 0.19544312, g: 0.5591631, b: 0.76729554, a: 1}
