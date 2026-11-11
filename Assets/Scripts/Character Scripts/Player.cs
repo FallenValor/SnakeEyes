@@ -14,6 +14,7 @@ public class Player : Combatant
 
 
     public List<GameObject> cardObjs = new List<GameObject>();
+    public List<GameObject> statuses = new List<GameObject>();
 
     [SerializeField] GameObject cardObject;
 
