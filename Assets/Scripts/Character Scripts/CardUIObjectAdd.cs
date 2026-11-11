@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Collections;
 //using UnityEditor.Playables;
@@ -75,7 +76,6 @@ public class CardUIObjectAdd : MonoBehaviour
                 cardImage.sprite = cardSpriteAttack;
                 break;
         }
-        costText.text = card.cost.ToString();
         //MouseChecker();
     }
 

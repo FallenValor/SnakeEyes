@@ -45,53 +45,56 @@ public class CardUIObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int valChange = 1;
         switch(card.action)
         {
             case GameAction.Attack:
                 nameText.text = "Attack";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
                 cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[0];
+                valChange = player.Attack;
                 break;
             case GameAction.Shield:
                 nameText.text = "Shield";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[1];
                 cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[1];
+                valChange = player.Defense;
                 break;
             case GameAction.Heal:
                 nameText.text = "Heal";
-                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[4];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[3];
                 break;
             case GameAction.Poison:
                 nameText.text = "Poison";
-                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[3];
-                
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[2];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
+                valChange = player.Attack;
                 break;
             case GameAction.Freeze:
                 nameText.text = "Freeze";
-                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[4];
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[3];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
                 break;
             case GameAction.Feint:
                 nameText.text = "Feint";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[5];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[1];
                 break;
             case GameAction.Evade:
                 nameText.text = "Evade";
-                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[6];
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[6];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[3];
                 break;
             case GameAction.Focus:
                 nameText.text = "Focus";
-                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[0];
-                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[7];
+                cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[5];
+                cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[4];
                 break;
             
         }
-        valueText.text = card.value.ToString();
-        //cardCost.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[7];
+        valueText.text = (card.value * valChange).ToString();
+        cardCost.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteCosts[card.cost - 1];
         //MouseChecker();
     }
 
