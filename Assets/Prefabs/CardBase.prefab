@@ -437,10 +437,23 @@ MonoBehaviour:
   cardSpriteColors:
   - {r: 0.754717, g: 0.2966654, b: 0.2966654, a: 1}
   - {r: 0.19544312, g: 0.5591631, b: 0.76729554, a: 1}
+  - {r: 0.60641336, g: 0.40494832, b: 0.6603774, a: 1}
+  - {r: 0.36054808, g: 0.6603774, b: 0.32603535, a: 1}
+  - {r: 0.47231117, g: 0.8223603, b: 0.899371, a: 1}
   cardSpriteSymbols:
   - {fileID: 21300000, guid: 86bdf60f34b13de40b912b17b534f04f, type: 3}
   - {fileID: 21300000, guid: b773b3792d3c0de4f98376295cccf3fb, type: 3}
-  cardSpriteDecos: []
+  - {fileID: 21300000, guid: fce9e13bacbcf304db3d1b0841ced83d, type: 3}
+  - {fileID: 21300000, guid: 926e6acefb74f2c49ab2a07867f626c4, type: 3}
+  - {fileID: 21300000, guid: 9031a25350d9c3441a98dea3aee3c2de, type: 3}
+  - {fileID: 21300000, guid: a9003a2ab3efde247869c1eccac74a30, type: 3}
+  - {fileID: 21300000, guid: d31a42cc56fbd0840924f1b375eebfe6, type: 3}
+  cardSpriteDecos:
+  - {fileID: 21300000, guid: 7c28d6613e7d97f40a897baadbb0cc3f, type: 3}
+  - {fileID: 21300000, guid: f4b90dfe89c7d9a43b5d4f522d9ddaef, type: 3}
+  - {fileID: 21300000, guid: 45972feb78d84c9409834fc937a0057c, type: 3}
+  - {fileID: 21300000, guid: 2cb3cafb66f4c714a8c028c48d8e5a85, type: 3}
+  - {fileID: 21300000, guid: 19c69ef567c6db8469fed2a7fc26da20, type: 3}
   cardSpriteCosts:
   - {fileID: 21300000, guid: 98cb5510b9a8f2a4193ccb980a236673, type: 3}
   - {fileID: 21300000, guid: e7fcc307f9109304d991cab7ada40061, type: 3}
