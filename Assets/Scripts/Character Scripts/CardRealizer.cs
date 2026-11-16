@@ -73,9 +73,11 @@ public class CardRealizer : MonoBehaviour
             {
                 case GameAction.Attack:
                     txt += "Attack, " + enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Attack.ToString();
+                    enemy.AttackPose();
                     break;
                 case GameAction.Shield:
                     txt += "Shield, " + enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value.ToString() + " * " + enemy.Defense.ToString();
+                    enemy.AttackAnim();
                     break;
             }
             enemy.CardString.text = txt;
