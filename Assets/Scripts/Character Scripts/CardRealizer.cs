@@ -13,6 +13,7 @@ public class CardRealizer : MonoBehaviour
     [SerializeField] public Player player;
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject button;
+    [SerializeField] GameObject button2;
     [SerializeField] GameObject upgradeCard;
     [SerializeField] GameObject upgradeCardWave;
     [SerializeField] GameObject upgradeCardAdd;
@@ -21,6 +22,12 @@ public class CardRealizer : MonoBehaviour
     public float upgradeSpace = 200;
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject winui;
+    [SerializeField] List<GameObject> anims;
+    [SerializeField] Canvas enemyCanvas;
+    [SerializeField] Canvas playerCanvas;
+
+
+    int cardIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,13 +41,7 @@ public class CardRealizer : MonoBehaviour
     }
     public void EndTurn()
     {
-        PlayerRealization();
-        EnemyRealization();
-        EnemyTurnUpdate();
-        if(enemy.Health > 0)
-        {
-            PlayerTurnUpdate();
-        }
+        StartCoroutine(PlayerRealization());
     }
 
     private void EnemyTurnUpdate()
@@ -75,6 +76,10 @@ public class CardRealizer : MonoBehaviour
             enemy.CardString.text = txt;
         }
         enemy.StatusUpdate();
+        if(enemy.Health > 0)
+        {
+            PlayerTurnUpdate();
+        }
     }
 
     private void PlayerTurnUpdate()
@@ -127,11 +132,12 @@ public class CardRealizer : MonoBehaviour
             }
             enemy.nextIndex = UnityEngine.Random.Range(0, enemy.type[enemy.enemyCounter].actions.Count);
         }
-
+        EnemyTurnUpdate();
     }
 
-    private void PlayerRealization()
+    System.Collections.IEnumerator PlayerRealization()
     {
+        float delay = 0;
         for (int i = player.cards.Count - 1; i >= 0; i--)
         {
             if (player.cards[i].played)
@@ -140,12 +146,18 @@ public class CardRealizer : MonoBehaviour
                 {
                     case GameAction.Attack:
                         Attack(player, enemy, player.cards[i].value);
+                        delay = 0.3f;
+                        Instantiate(anims[0],enemyCanvas.transform);
                         break;
                     case GameAction.Shield:
                         Shield(player, player.cards[i].value);
+                        delay = 0.7f;
+                        Instantiate(anims[1],playerCanvas.transform);
                         break;
                     case GameAction.Heal:
                         Heal(player, player.cards[i].value);
+                        delay = 1f;
+                        Instantiate(anims[2],playerCanvas.transform);
                         break;
                     case GameAction.Feint:
                         Feint(player, enemy, player.cards[i].value);
@@ -163,12 +175,15 @@ public class CardRealizer : MonoBehaviour
                         Focus(player, player.cards[i].value);
                         break;
                 }
+                yield return new WaitForSeconds(delay);
                 Card temp = player.cards[i];
                 temp.played = false;
                 player.cards.Remove(player.cards[i]);
                 player.discard.Add(temp);
+                player.UpdateCards();
             }
         }
+        EnemyRealization();
     }
 
     void Attack(Combatant attacker, Combatant defender, int val)
@@ -265,6 +280,7 @@ public class CardRealizer : MonoBehaviour
         enemy.CardString.text = "";
         enemy.gameObject.SetActive(false);
         button.SetActive(false);
+        button2.SetActive(false);
         for(int i = 0; i < 3; i++)
         {
             var up = Instantiate(upgradeCardWave, player.UIcanvas.transform);
@@ -283,6 +299,7 @@ public class CardRealizer : MonoBehaviour
         enemy.CardString.text = "";
         enemy.gameObject.SetActive(false);
         button.SetActive(false);
+        button2.SetActive(false);
         for(int i = 0; i < 3; i++)
         {
             var up = Instantiate(upgradeCard, player.UIcanvas.transform);
@@ -359,6 +376,7 @@ public class CardRealizer : MonoBehaviour
         }
         enemy.gameObject.SetActive(true);
         button.SetActive(true);
+        button2.SetActive(true);
         player.InitializeCards();
         enemy.Initialize();
     }
@@ -367,5 +385,15 @@ public class CardRealizer : MonoBehaviour
     {
         Instantiate(winui,canvas.transform);
         enemy.waveMultiplier += 1;
+    }
+
+    public void CardForMana()
+    {
+        if(player.mana > 0)
+        {
+            player.Draw();
+            player.mana -= 1;
+            player.UpdateCards();
+        }
     }
 }
