@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
+
 //using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +12,9 @@ using UnityEngine.UI;
 
 public class CardRealizer : MonoBehaviour
 {
+    [SerializeField] Animator ratAnim;
+    [SerializeField] Animator gobAnim;
+    [SerializeField] Animator ogreAnim;
     [SerializeField] public Player player;
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject button;
@@ -122,6 +127,7 @@ public class CardRealizer : MonoBehaviour
             {
                 case GameAction.Attack:
                     Attack(enemy, player, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
+                    enemy.AttackAnim();
                     break;
                 case GameAction.Shield:
                     Shield(enemy, enemy.type[enemy.enemyCounter].actions[enemy.nextIndex].value);
@@ -148,6 +154,7 @@ public class CardRealizer : MonoBehaviour
                         Attack(player, enemy, player.cards[i].value);
                         delay = 0.3f;
                         Instantiate(anims[0],enemyCanvas.transform);
+                        enemy.Hit();
                         break;
                     case GameAction.Shield:
                         Shield(player, player.cards[i].value);

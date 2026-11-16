@@ -66,5 +66,18 @@ public class Enemy : Combatant
         model = Instantiate(type[enemyCounter].modelPrefab, gameObject.transform);
         model.transform.SetPositionAndRotation(gameObject.transform.position,gameObject.transform.rotation);
     }
+
+    public void Hit()
+    {
+        model.GetComponent<Animator>().Play("Hit");
+    }
+    public void Defend()
+    {
+        model.GetComponent<Animator>().Play("Defend");
+    }
+    public void AttackAnim()
+    {
+        model.GetComponent<Animator>().Play("Attack");
+    }
 }
 
