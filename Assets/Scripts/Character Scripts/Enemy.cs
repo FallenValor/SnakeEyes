@@ -44,6 +44,7 @@ public class Enemy : Combatant
     }
     void Init(List<EnemyType> type)
     {
+        StatusText();
         nextIndex = Random.Range(0, type[enemyCounter].actions.Count);
         Health = type[enemyCounter].baseHealth;
         Attack = type[enemyCounter].attack;
