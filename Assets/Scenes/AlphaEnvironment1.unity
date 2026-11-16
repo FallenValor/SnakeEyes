@@ -2390,6 +2390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a39dcdc3ece5254b8bda1e5854dd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardRealizer
+  ratAnim: {fileID: 0}
+  gobAnim: {fileID: 0}
+  ogreAnim: {fileID: 0}
   player: {fileID: 623372709}
   enemy: {fileID: 1949571632}
   button: {fileID: 0}
@@ -2969,6 +2972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a39dcdc3ece5254b8bda1e5854dd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardRealizer
+  ratAnim: {fileID: 0}
+  gobAnim: {fileID: 0}
+  ogreAnim: {fileID: 0}
   player: {fileID: 250458114}
   enemy: {fileID: 1348916815}
   button: {fileID: 0}
