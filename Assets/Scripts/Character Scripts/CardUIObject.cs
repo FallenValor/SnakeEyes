@@ -106,7 +106,16 @@ public class CardUIObject : MonoBehaviour
         }
         valueText.text = (card.value * valChange).ToString();
         cardCost.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteCosts[card.cost - 1];
-        //MouseChecker();
+        if (card.played && buttonText.text != "Recall")
+        {
+            transform.Translate(new Vector3(0, 50, 0));
+            buttonText.text = "Recall";
+        }
+        if (!card.played && buttonText.text != "Play")
+        {
+            transform.Translate(new Vector3(0, -50, 0));
+            buttonText.text = "Play";
+        }
     }
 
     public void Init(Card cd)

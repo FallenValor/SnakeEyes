@@ -630,6 +630,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 230075304}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -0.413}
+--- !u!1 &209011139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209011140}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &209011140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209011139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &222963234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f630790fa010e743966272d861d8100, type: 3}
@@ -2362,6 +2393,7 @@ MonoBehaviour:
   player: {fileID: 623372709}
   enemy: {fileID: 1949571632}
   button: {fileID: 0}
+  button2: {fileID: 0}
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
   upgradeCardWave: {fileID: 4343740730075922494, guid: e51776fa524d86448b2701b6e85c9626, type: 3}
   upgradeCardAdd: {fileID: 4343740730075922494, guid: 219a3afa5d885224bad9eee8629091b0, type: 3}
@@ -2370,6 +2402,9 @@ MonoBehaviour:
   upgradeSpace: 200
   canvas: {fileID: 0}
   winui: {fileID: 8899576188863435862, guid: 1bbeccc4a2410634583e5689f5a871cd, type: 3}
+  anims: []
+  enemyCanvas: {fileID: 0}
+  playerCanvas: {fileID: 0}
 --- !u!1 &725787499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2972,7 @@ MonoBehaviour:
   player: {fileID: 250458114}
   enemy: {fileID: 1348916815}
   button: {fileID: 0}
+  button2: {fileID: 0}
   upgradeCard: {fileID: 4343740730075922494, guid: dfdcd621824d4b340b29432d670884ad, type: 3}
   upgradeCardWave: {fileID: 4343740730075922494, guid: e51776fa524d86448b2701b6e85c9626, type: 3}
   upgradeCardAdd: {fileID: 4343740730075922494, guid: 219a3afa5d885224bad9eee8629091b0, type: 3}
@@ -2945,6 +2981,9 @@ MonoBehaviour:
   upgradeSpace: 200
   canvas: {fileID: 0}
   winui: {fileID: 8899576188863435862, guid: 1bbeccc4a2410634583e5689f5a871cd, type: 3}
+  anims: []
+  enemyCanvas: {fileID: 0}
+  playerCanvas: {fileID: 0}
 --- !u!1 &1010029750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4629,3 +4668,4 @@ SceneRoots:
   - {fileID: 1889407199}
   - {fileID: 734896002}
   - {fileID: 328628078}
+  - {fileID: 209011140}

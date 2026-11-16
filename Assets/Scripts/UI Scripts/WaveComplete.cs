@@ -6,18 +6,7 @@ public class WaveComplete : MonoBehaviour
     
     public void Quit()
     {
-        switch(SceneManager.GetActiveScene().name)
-        {
-            case "AlphaEnvironment1":
-            SceneManager.LoadScene("Scenes/AlphaEnvironment2");
-            break;
-            case "AlphaEnvironment2":
-            SceneManager.LoadScene("Scenes/AlphaEnvironment3");
-            break;
-            case "AlphaEnvironment3":
-            SceneManager.LoadScene("Scenes/AlphaMainMenu");
-            break;
-        }
+        FindAnyObjectByType<DontDestroy>().Move();
         FindAnyObjectByType<CardRealizer>().UpgradeShopEnd();
         Destroy(gameObject);
     }
