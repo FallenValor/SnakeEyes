@@ -73,11 +73,15 @@ public class Enemy : Combatant
     }
     public void Defend()
     {
-        model.GetComponent<Animator>().Play("Defend");
+        //model.GetComponent<Animator>().Play("Defend");
     }
     public void AttackAnim()
     {
-        model.GetComponent<Animator>().Play("Attack");
+        model.GetComponent<Animator>().SetInteger("Action", 1);
+    }
+    public void AttackPose()
+    {
+        model.GetComponent<Animator>().SetInteger("Action", 2);
     }
 }
 

@@ -1293,6 +1293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a39dcdc3ece5254b8bda1e5854dd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardRealizer
+  ratAnim: {fileID: 0}
+  gobAnim: {fileID: 0}
+  ogreAnim: {fileID: 0}
   player: {fileID: 8384897198972006682}
   enemy: {fileID: 5254431768090140836}
   button: {fileID: 8180884405863084638}
