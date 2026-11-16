@@ -1,8 +1,10 @@
 using UnityEngine;
+using TMPro;
 
 public class Combatant : MonoBehaviour
 {
     private int HP;
+    public TMP_Text text;
 
     public int Health
     {
@@ -67,6 +69,19 @@ public class Combatant : MonoBehaviour
         if(Frozen > 0)
         {
             Frozen -= 1;
+        }
+        StatusText();
+    }
+    public void StatusText()
+    {
+        text.text = "";
+        if(Evade > 0)
+        {
+            text.text += "\nEvade: " + evade;
+        }
+        if(Frozen > 0)
+        {
+            text.text += "\nFrozen: " + frozen;
         }
     }
 }

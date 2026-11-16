@@ -14,7 +14,7 @@ public class Player : Combatant
 
 
     public List<GameObject> cardObjs = new List<GameObject>();
-    public List<GameObject> statuses = new List<GameObject>();
+    [SerializeField] TMP_Text statuses;
 
     [SerializeField] GameObject cardObject;
 
@@ -61,6 +61,7 @@ public class Player : Combatant
 
     public void InitializeCards()
     {
+        StatusText();
         EmptyHand();
         Shuffle();
         for(int i = 0; i < 4; i++)

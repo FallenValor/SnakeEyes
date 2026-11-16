@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using Unity.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 
 //using UnityEditor.EditorTools;
 using UnityEngine;
@@ -12,9 +11,6 @@ using UnityEngine.UI;
 
 public class CardRealizer : MonoBehaviour
 {
-    [SerializeField] Animator ratAnim;
-    [SerializeField] Animator gobAnim;
-    [SerializeField] Animator ogreAnim;
     [SerializeField] public Player player;
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject button;
@@ -170,18 +166,30 @@ public class CardRealizer : MonoBehaviour
                         break;
                     case GameAction.Feint:
                         Feint(player, enemy, player.cards[i].value);
+                        delay = 0.3f;
+                        Instantiate(anims[0],enemyCanvas.transform);
                         break;
                     case GameAction.Poison:
                         Poison(player, enemy, player.cards[i].value);
+                        delay = 1f;
+                        Instantiate(anims[3],enemyCanvas.transform);
                         break;
                     case GameAction.Freeze:
                         Freeze(enemy, player.cards[i].value);
+                        delay = 1f;
+                        Instantiate(anims[4],enemyCanvas.transform);
+                        enemy.StatusText();
                         break;
                     case GameAction.Evade:
                         Evade(player, player.cards[i].value);
+                        delay = 1f;
+                        Instantiate(anims[6],playerCanvas.transform);
+                        player.StatusText();
                         break;
                     case GameAction.Focus:
                         Focus(player, player.cards[i].value);
+                        delay = 0.3f;
+                        Instantiate(anims[5],playerCanvas.transform);
                         break;
                 }
                 yield return new WaitForSeconds(delay);
