@@ -67,20 +67,20 @@ public class CardUIObject : MonoBehaviour
                 break;
             case GameAction.Heal:
                 nameText.text = "Heal";
-                descriptionText.text = "Heal - Gain" + (card.value * valChange).ToString() + "points of health.";
+                descriptionText.text = "Heal - Gain " + (card.value * valChange).ToString() + " points of health.";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[4];
                 cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[3];
                 break;
             case GameAction.Poison:
                 nameText.text = "Poison";
-                descriptionText.text = "Poison - Deal" + (card.value * valChange).ToString() + "points of true damage. (This damage is not stopped by shield)";
+                descriptionText.text = "Poison - Deal " + (card.value * valChange).ToString() + " points of true damage. (This damage is not stopped by shield)";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[2];
                 cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
                 valChange = player.Attack;
                 break;
             case GameAction.Freeze:
                 nameText.text = "Freeze";
-                descriptionText.text = "Freeze - Enemy cannot perform attack for set amount of turns.";
+                descriptionText.text = "Freeze - Enemy cannot perform attack for this turns.";
                 cardImage.GetComponent<UnityEngine.UI.Image>().sprite = cardSpriteSymbols[3];
                 cardColor.GetComponent<UnityEngine.UI.Image>().color = cardSpriteColors[2];
                 break;
